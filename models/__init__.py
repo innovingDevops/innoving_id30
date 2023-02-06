@@ -9,3 +9,4 @@ from . import region
 from . import sous_prefecture
 from . import zone_recensement
 from . import res_users
+from . import utilisateur
