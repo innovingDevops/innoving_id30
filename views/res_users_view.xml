@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="res_innoving_users_view_form_inherit"
+			model="ir.ui.view">
+			<field name="name">Utilisateur</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form" />
+			<field name="arch" type="xml">
+				<group position="before" col="2">
+					<group string="Champs INS">
+						<field name="cluster_id"  string="Cluster" options="{'no_create': True, 'no_open': True}"/>
+						<field name="region_id"  string="Région" options="{'no_create': True, 'no_open': True}"/>
+						<field name="departement_id"  string="Département" options="{'no_create': True, 'no_open': True}"/>
+						<field name="sousprefecture_id"  string="Sous préfecture" options="{'no_create': True, 'no_open': True}"/>
+						<field name="commune_id"  string="Commune" options="{'no_create': True, 'no_open': True}"/>
+						<field name="localite_id"  string="Localité" options="{'no_create': True, 'no_open': True}"/>
+						<field name="zonerecensement_id"  string="Zone de recensement" options="{'no_create': True, 'no_open': True}"/>
+						<field name="quartier_id"  string="Quartier" options="{'no_create': True, 'no_open': True}"/>
+						<field name="ilot_ids" widget="many2many_tags"  string="Ilots" options="{'no_create': True, 'no_open': True}"/>
+					</group>
+				</group>
+			</field>
+		</record>
+	</data>
+</odoo>
