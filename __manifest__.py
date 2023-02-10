@@ -24,6 +24,7 @@ You could use this simplified accounting in case you work with an (external) acc
         'views/cluster_view.xml',
         'views/commune_view.xml',
         'views/departement_view.xml',
+        'views/entreprenant_view.xml',
         'views/ilot_view.xml',
         'views/localite_view.xml',
         'views/quartier_view.xml',

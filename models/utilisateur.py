@@ -31,7 +31,8 @@ class InnovingUtilisateur(models.Model):
     _description = "Gestion des utilisateurs d'identification"
     _order = "name asc"
 
-
+    def _get_default_user_id(self):
+        return self.env.uid
 
     active = fields.Boolean(string='Actif',default=True, track_visibility="always")
     name = fields.Char(string="Nom et prénoms", track_visibility="always")

@@ -4,6 +4,9 @@
 		<menuitem name="ID30" id="menu_innoving_id30_root" sequence="1"
 				  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_backoffice,innoving_id30.group_innoving_id30_evaluateur,innoving_id30.group_innoving_id30_identificateur,innoving_id30.group_innoving_id30_collecteur"/>
 							
+			<menuitem action="action_view_innoving_entreprenant_tree" name="Entreprenant" id="menu_innoving_entreprenant" sequence="5" parent="innoving_id30.menu_innoving_id30_root"
+					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
+					  
 			<menuitem name="Configurations" id="menu_innoving_config" sequence="10" parent="innoving_id30.menu_innoving_id30_root"
 					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
 				
