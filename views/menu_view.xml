@@ -1,27 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data noupdate="0">
-		<menuitem name="ID30" id="menu_innoving_id30_root" sequence="1" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_backoffice,innoving_id30.group_innoving_id30_evaluateur,innoving_id30.group_innoving_id30_identificateur,innoving_id30.group_innoving_id30_collecteur"/>
+		<menuitem name="ID30" id="menu_innoving_id30_root" sequence="1"
+				  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_backoffice,innoving_id30.group_innoving_id30_evaluateur,innoving_id30.group_innoving_id30_identificateur,innoving_id30.group_innoving_id30_collecteur"/>
 							
-			<menuitem name="Configurations" id="menu_innoving_config" sequence="10" parent="innoving_id30.menu_innoving_id30_root" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
+			<menuitem name="Configurations" id="menu_innoving_config" sequence="10" parent="innoving_id30.menu_innoving_id30_root"
+					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
 				
-				<menuitem action="action_view_innoving_cluster_tree" name="Cluster" id="menu_innoving_cluster_menu" sequence="105" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_cluster_tree" name="Cluster" id="menu_innoving_cluster_menu" sequence="105" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 					
-				<menuitem action="action_view_innoving_region_tree" name="Region" id="menu_innoving_region_menu" sequence="110" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_region_tree" name="Region" id="menu_innoving_region_menu" sequence="110" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 			
-				<menuitem action="action_view_innoving_departement_tree" name="Département" id="menu_innoving_departement_menu" sequence="115" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_departement_tree" name="Département" id="menu_innoving_departement_menu" sequence="115" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-				<menuitem action="action_view_innoving_sous_prefecture_tree" name="Sous prefecture" id="menu_innoving_sous_prefecture_menu" sequence="120" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_sous_prefecture_tree" name="Sous prefecture" id="menu_innoving_sous_prefecture_menu" sequence="120" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 					
-				<menuitem action="action_view_innoving_commune_tree" name="Commune" id="menu_innoving_commune_menu" sequence="125" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />	
+				<menuitem action="action_view_innoving_commune_tree" name="Commune" id="menu_innoving_commune_menu" sequence="125" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 				
-				<menuitem action="action_view_innoving_localite_tree" name="Localité" id="menu_innoving_localite_menu" sequence="130" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_localite_tree" name="Localité" id="menu_innoving_localite_menu" sequence="130" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-				<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="135" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="135" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-				<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="140" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="140" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-				<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="145" parent="menu_innoving_config" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+				<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="145" parent="menu_innoving_config"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+
+
+
+
 
 	</data>
 </odoo>

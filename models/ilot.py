@@ -57,9 +57,9 @@ class InnovingIlot(models.Model):
     sousprefecture_id = fields.Many2one('innoving.sous.prefecture', string="Sous préfecture")
     commune_id = fields.Many2one('innoving.commune', string="Commune")
     localite_id = fields.Many2one('innoving.localite', string="Localite")
-    quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
     zonerecensement_id = fields.Many2one('innoving.zone.recensement', string='Zone recensement')
-        
+    quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
+
     
     @api.multi
     def button_draft(self, force=False):

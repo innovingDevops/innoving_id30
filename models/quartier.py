@@ -53,9 +53,10 @@ class InnovingQuartier(models.Model):
         ('done' , 'Terminé'),
         ('cancel', 'Annulé/Rejeté')
         ] , default='draft', track_visibility="always")
-    #ilot_ids = fields.Many2many('innoving.ilot','quartier_ilot_rel','quartier_id','ilot_id','Ilot')
-    zonerecencement_ids = fields.One2many('innoving.zone.recensement','quartier_id',string='Zone de recensement')
-    localite_id = fields.Many2one('innoving.localite',string='Localite')
+    ilot_ids = fields.One2many('innoving.ilot','quartier_id','Ilots')
+    #zonerecencement_ids = fields.One2many('innoving.zone.recensement','quartier_id',string='Zone de recensement')
+    zonerecencement_id = fields.Many2one('innoving.zone.recensement', string='ZR')
+
         
     
     @api.multi

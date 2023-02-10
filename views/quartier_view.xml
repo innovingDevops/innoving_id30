@@ -50,12 +50,12 @@
 							<field name="code"/>
 						</group>
 						<group>
-							<field name="localite_id"/>
+							<field name="zonerecencement_id"/>
 						</group>
 					</group>
 
-					<group string="Zones de recensement">
-						<field name="zonerecencement_ids" nolabel="1">
+					<group string="Liste des Ilots du quartier">
+						<field name="ilot_ids" nolabel="1">
 							<tree>
 								<field name="code" />
 								<field name="name" />
@@ -87,7 +87,7 @@
 		<field name="arch" type="xml">
 			<tree string="Les quartiers" toolbar="1">
 				<field name="name"/>
-				<field name="localite_id"/>
+				<field name="zonerecencement_id"/>
 				<field name="user_id"/>
 				<field name="date_ajout"/>
 			</tree>

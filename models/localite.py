@@ -54,7 +54,8 @@ class InnovingLocalite(models.Model):
         ('cancel', 'Annulé/Rejeté')
         ] , default='draft', track_visibility="always")
     #zonerecensement_ids = fields.Many2many('innoving.zone.recensement','localite_zonerecesement_rel','localite_id','zone_recensement_id','Zones de recensement')
-    quartier_ids = fields.One2many('innoving.quartier','localite_id','Quartier')
+    #quartier_ids = fields.One2many('innoving.quartier','localite_id','Quartier')
+    zonerecensement_ids = fields.One2many('innoving.zone.recensement','localite_id','ZR')
     commune_id = fields.Many2one('innoving.commune',string='Commune')
         
     

@@ -53,8 +53,8 @@
 							<field name="commune_id"/>
 						</group>
 					</group>
-					<group string="Quartiers">
-						<field name="quartier_ids" nolabel="1">
+					<group string="Zones de récecement">
+						<field name="zonerecensement_ids" nolabel="1">
 							<tree>
 								<field name="code" />
 								<field name="name" />

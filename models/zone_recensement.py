@@ -54,8 +54,8 @@ class InnovingZoneRecesement(models.Model):
         ('cancel', 'Annulé/Rejeté')
         ] , default='draft', track_visibility="always")
     #quartier_ids = fields.Many2many('innoving.quartier','zonerecensement_quartier_rel','zonerecensement_id','quartier_id','Quartier')
-    ilots_ids = fields.One2many('innoving.ilot','zonerecensement_id',string='Ilot')
-    quartier_id = fields.Many2one('innoving.quartier',string='Quartier')
+    quartier_ids = fields.One2many('innoving.quartier','zonerecencement_id',string='ZR')
+    localite_id = fields.Many2one('innoving.localite', string='Localite')
         
     
     @api.multi

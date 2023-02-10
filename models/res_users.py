@@ -39,3 +39,21 @@ class Users(models.Model):
     zonerecensement_id = fields.Many2one('innoving.zone.recensement', string="Zone recensement")
     quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
     ilot_ids = fields.Many2many('innoving.ilot', 'user_id', 'ilot_id', string="Ilots")
+    type_users = fields.Selection(string="Type utilisateur", selection=[
+        ('Manager', 'Manager'),
+        ('Superviseur', 'Superviseur'),
+        ('Chef Equipe', 'Chef Equipe'),
+        ('Identificateur', 'Identificateur'),
+        ('Evaluateur', 'Evaluateur'),
+        ('Backoffice', 'Backoffice'),
+        ('Lecture', 'Lecture')
+    ], track_visibility="always")
+    superviseur_id = fields.Many2one('res.users', string="Superviseur")
+    manager_id = fields.Many2one('res.users', string="Manager")
+    district = fields.Selection(string="District", selection=[
+        ('Abidjan', 'Abidjan'),
+        ('Yamoussoukro', 'Yamoussoukro')
+    ], track_visibility="always")
+
+
+
