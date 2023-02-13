@@ -48,6 +48,12 @@ class Users(models.Model):
         ('Backoffice', 'Backoffice'),
         ('Lecture', 'Lecture')
     ], track_visibility="always")
+    equipe_id = fields.Many2one('innoving.equipe', string="Equipe de l'identificateur")
+    has_equipe = fields.Boolean(string='Déja dans une equipe')
+    is_chef = fields.Selection(string="Statut chef equipe", selection=[
+        ('Occupe', 'Occupe'),
+        ('Libre', 'Libre'),
+    ], default='Libre', track_visibility="always")
     superviseur_id = fields.Many2one('res.users', string="Superviseur")
     manager_id = fields.Many2one('res.users', string="Manager")
     district = fields.Selection(string="District", selection=[

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_innoving_equipe_identificateur_form" model="ir.ui.view">
+		<field name="name">Equipe</field>
+		<field name="model">innoving.equipe</field>
+		<field name="arch" type="xml">
+			<form string="commune">
+				<header>
+					<button name="button_confirm" string="Valider"
+						type="object" class="oe_highlight" states="draft"
+						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_manager,innoving_id30.group_innoving_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_chef_equipe"
+						confirm='Etes vous sûr de vouloir valider cette équipe ?' />
+						
+
+					 
+					<button name="button_cancel" string="Annuler/Rejeter"
+						type="object" class="oe_highlight" states="confirm,valid"
+						groups="innoving_id30.group_innoving_manager"
+						confirm='Etes vous sûr de vouloir annuler/rejeter?' />
+
+					<field name="state" widget='statusbar' />
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="toggle_active" type="object" 
+						groups="innoving_id30.group_innoving_manager"
+                        class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button> 
+					</div>
+					<div class="oe_title" style="width:60%">
+						<h1>
+			            	<field name="name" required="1" placeholder="Nom équipe" />
+			            </h1>
+					</div>
+					<group>
+						<group>
+							<field name="code"/>
+						</group>
+						<group>
+							<field name="chef_equipe_id" options="{'no_create': True, 'no_open': True}"
+								   domain="[('type_users','=','Chef Equipe'),('is_chef','=','Libre')]" />
+						</group>
+					</group>
+
+					<group string="Liste des identificateurs de l'équipe">
+						<field name="identificateur_ids" options="{'no_create': True, 'no_open': True}" domain="[('type_users','=','Identificateur'),('has_equipe','=',False)]" nolabel="1">
+							<tree>
+								<field name="name" />
+								<field name="telephone" />
+								<field name="type_users" />
+							</tree>
+						</field>
+					</group>
+				</sheet>
+   
+				<div class="oe_chatter"> <field name="message_follower_ids" widget="mail_followers" 
+					/> <field name="activity_ids" widget="mail_activity" /> <field name="message_ids" 
+					widget="mail_thread" /> </div>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_innoving_equipe_identificateur_pivot">
+		<field name="name">Liste des equipes</field>
+		<field name="model">innoving.equipe</field>
+		<field name="arch" type="xml">
+			<pivot string="Liste des equipes">
+				<field name="name" type="row"/>
+				<field name="date_ajout" type="row" />
+				<field name="user_id" type="measure" />
+			</pivot>
+		</field>
+	</record>
+	<record id="view_innoving_equipe_identificateur_tree" model="ir.ui.view">
+		<field name="name">Liste des equipes</field>
+		<field name="model">innoving.equipe</field>
+		<field name="arch" type="xml">
+			<tree string="Les equipes" toolbar="1">
+				<field name="name"/>
+				<field name="chef_equipe_id"/>
+				<field name="nbr_identificateur"/>
+				<field name="user_id"/>
+				<field name="date_ajout"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_view_innoving_equipe_identificateur_tree"
+		model="ir.actions.act_window">
+		<field name="name">Les equipes</field>
+		<field name="res_model">innoving.equipe</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,pivot</field>
+		<field name="view_id" ref="view_innoving_equipe_identificateur_tree" />
+		<!-- declaration de la search vue
+		<field name="search_view_id" ref="innoving_equipe_identificateur_view_search" />-->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Enregistrer une nouvelle équipe
+			</p>
+		</field>
+	</record>
+</odoo>

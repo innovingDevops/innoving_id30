@@ -34,6 +34,14 @@
 				<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="145" parent="menu_innoving_config"
 						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
+			<menuitem name="Attribution" id="menu_innoving_attribution" sequence="20" parent="innoving_id30.menu_innoving_id30_root"
+					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
+
+				<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Equipe d'identificateur" id="menu_innoving_affectation_identificateur" sequence="201" parent="menu_innoving_attribution"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur" />
+
+				<menuitem action="action_view_innoving_ilot_tree" name="Affectation Ilot" id="menu_innoving_affectation_ilot" sequence="205" parent="menu_innoving_attribution"
+						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur,group_innoving_id30_chef_equipe" />
 
 
 

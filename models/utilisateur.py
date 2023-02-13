@@ -60,6 +60,6 @@ class InnovingUtilisateur(models.Model):
     localite_id = fields.Many2one('innoving.localite', string="Localite")
     zonerecensement_id = fields.Many2one('innoving.zone.recensement', string="Zone recensement")
     quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
-    ilot_ids = fields.Many2many('innoving.ilot', 'user_id', 'ilot_id', string="Ilots")
+    ilot_ids = fields.Many2many('innoving.ilot','innoving_ilots_user_rel', 'user_id', 'ilot_id', string="Ilots")
     superviseur_id = fields.Many2one('innoving.utilisateur', string="Superviseur")
 
