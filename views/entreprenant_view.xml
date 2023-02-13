@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_innoving_entreprenant_form" model="ir.ui.view">
+		<field name="name">entreprenant</field>
+		<field name="model">innoving.entreprenant</field>
+		<field name="arch" type="xml">
+			<form string="entreprenant">
+				<header>
+					<button name="button_confirm" string="Confirmer"
+						type="object" class="oe_highlight" states="draft"
+						groups="innoving_id30.group_innoving_supermanager"
+						confirm='Etes vous sûr de vouloir confirmer?' />
+						
+					<button name="button_done" string="Terminer"
+						type="object" class="oe_highlight" states="confirm"
+						groups="innoving_id30.group_innoving_supermanager"
+						confirm='Etes vous sûr de vouloir terminer ?' />
+					 
+					<button name="button_cancel" string="Annuler/Rejeter"
+						type="object" class="oe_highlight" states="confirm,valid"
+						groups="innoving_id30.group_innoving_supermanager"
+						confirm='Etes vous sûr de vouloir annuler/rejeter?' />
+						
+					<button name="button_draft" string="Remettre au brouillon"
+						type="object" class="oe_highlight" states="cancel"
+						groups="innoving_id30.group_innoving_supermanager"
+						confirm='Etes vous sûr de vouloir remettre au brouillon?' />
+					
+					<!--  <button name="gen_entreprenant" string="Générér feuille de temps" type="object" class="oe_highlight" groups="innoving_entreprenant.group_innoving_entreprenant_supermanager,innoving_entreprenant.group_innoving_entreprenant_lecture,innoving_entreprenant.group_innoving_entreprenant_agent,innoving_entreprenant.group_innoving_entreprenant_super_supermanager" 
+					confirm='Etes vous sûr de vouloir générér ce emploi du temps ?' style="background-color:green;" />
+					-->
+					<field name="state" widget='statusbar' />
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="toggle_active" type="object" 
+						groups="innoving_id30.group_innoving_supermanager"
+                        class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button> 
+					</div>
+					<field name="image" widget='image' class="oe_avatar"
+                               options="{'preview_image':'image'}" />
+                    <div class="oe_title">
+                       	<h1>
+			            	<field name="name" required="1" placeholder="Nom et prénom(s)" />
+			            </h1>
+                            <field name="code"/>
+                        </div>
+					<group>
+						<group string="Informations entreprenant">
+							<field name="telephone"/>
+							<field name="adresse"/>
+							<field name="email"/>
+							<field name="nature_piece"/>
+							<field name="cni"/>
+							<field name="sexe"/>
+							<field name="birthday"/>
+							<field name="country_id"/>
+							<field name="lieu_naissance"/>
+							<field name="profession"/>
+						</group>
+						<group string="Autres Informations">
+							<field name="commune_identification"/>
+							<field name="rccm"/>
+							<field name="terminal"/>
+							<field name="date_validite_piece"/>
+							<field name="biometrie"/>
+							<field name="sous_prefecture"/>
+							<field name="commune"/>
+							<field name="milieu_implantation"/>
+							<field name="district"/>
+							<field name="region_id"/>
+							<field name="departement_id"/>
+						</group>
+					</group>
+					<group>
+						<group string="Informations repondant">
+							<field name="nom_repondant"/>
+							<field name="fonction_repondant"/>
+							<field name="contact_1_repondant"/>
+							<field name="contact_2_repondant"/>
+							<field name="email_repondant"/>
+						</group>
+						<group string="Informations dirigeant">
+							<field name="nom_prenom_dirigeant"/>
+							<field name="email_dirigeant"/>
+							<field name="qualite_dirigeant"/>
+							<field name="autre_qualite"/>
+						</group>
+					</group>
+					
+					<group string="Informations entréprise">
+						<group>
+							<field name="sigle_entreprise"/>
+							<field name="telephone_fixe_2_entreprise"/>
+							<field name="telephone_portable_1_entreprise"/>
+							<field name="telephone_portable_2_entreprise"/>
+							<field name="faxe_entreprise"/>
+						</group>
+						<group>
+							<field name="email_entreprise"/>
+							<field name="site_web_entreprise"/>
+							<field name="adresse_geographique_entreprise"/>
+							<field name="boite_postale_entreprise"/>
+						</group>
+					</group>
+					
+					<notebook>
+                            <page string="Informations supplementaires">
+                                <tree>
+                                    <group>
+                                        <group>
+                                            <field name="date_confirm"/>
+                                            <field name="date_valid"/>
+                                            <field name="creat_year"/>
+                                            <field name="creat_month"/>
+                                        </group>
+                                        <group>
+                                            <field name="activity_number"/>
+                                            <field name="amount_total"/>
+                                            <field name="amount_paye"/>
+                                        </group>
+                                    </group>
+                                </tree>
+                            </page>
+                	</notebook>
+				</sheet>
+   
+				<div class="oe_chatter"> <field name="message_follower_ids" widget="mail_followers" 
+					/> <field name="activity_ids" widget="mail_activity" /> <field name="message_ids" 
+					widget="mail_thread" /> </div>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_innoving_entreprenant_pivot">
+		<field name="name">Liste des entreprenants</field>
+		<field name="model">innoving.entreprenant</field>
+		<field name="arch" type="xml">
+			<pivot string="Liste des entreprenants">
+				<field name="name" type="row"/>
+				<field name="date_ajout" type="row" />
+				<field name="user_id" type="measure" />
+			</pivot>
+		</field>
+	</record>
+	<record id="view_innoving_entreprenant_tree" model="ir.ui.view">
+		<field name="name">Liste des entreprenants</field>
+		<field name="model">innoving.entreprenant</field>
+		<field name="arch" type="xml">
+			<tree string="Les entreprenants" toolbar="1">
+				<field name="name"/>
+				<field name="region_id"/>
+				<field name="user_id"/>
+				<field name="date_ajout"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_view_innoving_entreprenant_tree"
+		model="ir.actions.act_window">
+		<field name="name">Les entreprenants</field>
+		<field name="res_model">innoving.entreprenant</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,pivot</field>
+		<field name="view_id" ref="view_innoving_entreprenant_tree" />
+		<!-- declaration de la search vue
+		<field name="search_view_id" ref="innoving_entreprenant_view_search" />-->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Enregistrer un nouveau entreprenant
+			</p>
+		</field>
+	</record>
+</odoo>

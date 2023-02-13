@@ -8,10 +8,9 @@
 			<field name="inherit_id" ref="base.view_users_form" />
 			<field name="arch" type="xml">
 				<group position="before" col="2">
-					<group string="Informations suplémentaires">
 
 						<field name="type_users"  string="Type d'utilisateur" options="{'no_create': True, 'no_open': True}"  required="1"/>
-						<field name="telephone"  string="Téléphone"  required="1"/>
+						<field name="telephone"  string="Téléphone"  />
 						<field name="superviseur_id"  string="Supervisieur" options="{'no_create': True, 'no_open': True}"
 							   domain="[('type_users','=','Superviseur')]" attrs="{'invisible' : [('type_users', 'in' ,['Manager','Superviseur'])]}" />
 						<field name="manager_id"  string="Manager" options="{'no_create': True, 'no_open': True}"
