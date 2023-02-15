@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- respartner tree views -->
+		<record model="ir.ui.view" id="res_partner_view_tree_inherit">
+			<field name="name">Liste des activités économiques</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_tree" />
+			<field name="arch" type="xml">
+				<tree>
+					<field name='ref'/>
+					<field name='entreprenant_id' />
+				</tree>
+			</field>
+		</record>
+
+		<record id="res_partner_view_form_activite_inherit"
+			model="ir.ui.view">
+			<field name="name">Activité économique </field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//form//sheet" position="before">
+					<header>
+
+					
+					</header>
+				</xpath>
+
+
+				<field name="parent_id" position="after">
+					<field name="entreprenant_id" readonly="1"/>
+				</field>
+				<field name="parent_id" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</field>
+				<field name="name" position="attributes">
+					<attribute name="required">1</attribute>
+				</field>
+				<field name="street" position="replace">
+					<field name="street" placeholder="Rue" required="True" />
+				</field>
+				<field name="city" position="replace">
+					<field name="city" placeholder="Ville" required="True" />
+				</field>
+				<field name="country_id" position="replace">
+					<field name="country_id" required="True" />
+				</field>
+				<field name="state_id" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</field>
+				<field name="zip" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</field>
+				<field name="website" position="replace">
+					<field name="website" widget="url"
+						placeholder="e.x. https://www.innoving.info" />
+				</field>
+				<field name="phone" position="replace">
+					<field name="phone" required="1" />
+				</field>
+				<field name="lang" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</field>
+
+				<page name="sales_purchases" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</page>
+				<page name="accounting" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</page>
+				<xpath expr="//group" position="before">
+					<group col="2" colspan="2">
+						<group string="Référence">
+							<field name="ref" nolabel="1" readonly="1" />
+						</group>
+						<group>
+
+						</group>
+					</group>
+			</field>
+		</record>
+
+		<record id="res_partner_view_form_activites_inherit"
+			model="ir.ui.view">
+			<field name="name">Activité économique</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id"
+				ref="account.view_partner_property_form" />
+			<field name="arch" type="xml">
+				<page name="accounting" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</page>
+			</field>
+		</record>
+
+		<!--<record id="act_res_partner_activites_map" model="ir.actions.act_window"> 
+			<field name="name">Map</field> <field name="type">Les activités</field> <field 
+			name="res_model">res.partner</field> <field name="view_type">form</field> 
+			<field name="view_mode">map,form</field> <field name="domain">[('id', '=', 
+			active_id)]</field> </record> -->
+
+		<record model='ir.ui.view' id='view_res_partner_filter_inherit'>
+			<field name='name'>res.partner.select.inherit.base.partner.filter
+			</field>
+			<field name='model'>res.partner</field>
+			<field name='inherit_id' ref='base.view_res_partner_filter' />
+			<field name='arch' type='xml'>
+				<filter name="filter_my_partners" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="type_person" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="type_company" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="customer" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="supplier" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="inactive" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="salesperson" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="group_company" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<filter name="group_country" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</filter>
+				<group name="group_by" position="inside">
+					<filter name="fiscal_year_id" string="Année fiscale"
+						domain="" context="{'group_by':'fiscal_year_id'}" />
+					<filter name="entreprenant_id" string="Entreprenant"
+						domain="" context="{'group_by':'entreprenant_id'}" />
+					<filter name="user_id" string="Identificateur" domain=""
+						context="{'group_by':'user_id'}" />
+				</group>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_colibri_res_partner_pivot">
+			<field name="name">Les activités économiques </field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<pivot string="Activités">
+					<field name="name" type="row" />
+					<field name="user_id" type="measure" />
+				</pivot>
+			</field>
+		</record>
+
+		<record id="action_partner_supplier_activite_form"
+			model="ir.actions.act_window">
+			<field name="name">Activités économiques</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.partner</field>
+			<field name="view_type">form</field>
+			<field name="domain">[('company_type','=','activity')]</field>
+			<field name="view_mode">kanban,tree,form,pivot,map</field>
+			<!--<field name="context">{'default_customer':1, 'search_default_customer':1, 
+				'user_ids': ""} </field> -->
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new vendor in your address book
+				</p>
+				<p>
+					Odoo helps you easily track all activities related to a vendor.
+				</p>
+			</field>
+		</record>
+
+		<record id="action_partner_supplier_mes_activite_form"
+			model="ir.actions.act_window">
+			<field name="name">Mes Activités économiques</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.partner</field>
+			<field name="view_type">form</field>
+			<field name="domain">[('user_id','=',uid),('company_type','=','activity')]
+			</field>
+			<field name="view_mode">kanban,tree,form,map</field>
+			<!--<field name="context">{'default_customer':1, 'search_default_customer':1, 
+				'user_ids': ""} </field> -->
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new vendor in your address book
+				</p>
+				<p>
+					Odoo helps you easily track all activities related to a vendor.
+				</p>
+			</field>
+		</record>
+	</data>
+</odoo>
