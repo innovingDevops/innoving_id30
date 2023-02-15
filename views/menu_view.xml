@@ -9,27 +9,20 @@
 
 	<!-- Activités -->
 			<menuitem name="Activités" id="menu_innoving_id30_activite_root"
-				sequence="12" parent="innoving_id30.menu_innoving_id30_root"
+				sequence="10" parent="innoving_id30.menu_innoving_id30_root"
 				groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
 					<menuitem action="action_partner_supplier_activite_form"
 						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
 						id="menu_innoving_id30_res_partner_activites_tree_list" name="Toutes les activités"
-						parent="menu_innoving_id30_activite_root" sequence="121" />
+						parent="menu_innoving_id30_activite_root" sequence="105" />
 
 					<menuitem action="action_partner_supplier_mes_activite_form"
 						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
 						id="menu_res_partner_mes_activite" name="Mes activités"
-						parent="menu_innoving_id30_activite_root" sequence="122" />
+						parent="menu_innoving_id30_activite_root" sequence="1010" />
 					  
-			<menuitem name="Affectation" id="menu_innoving_attribution" sequence="10" parent="innoving_id30.menu_innoving_id30_root"
-						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
-	
-					<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Equipe d'identificateur" id="menu_innoving_affectation_identificateur" sequence="101" parent="menu_innoving_attribution"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur" />
-	
-					<menuitem action="action_view_innoving_affectation_tree" name="Affectation des Identificateurs" id="menu_innoving_affectation" sequence="102" parent="menu_innoving_attribution"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur,group_innoving_id30_chef_equipe" />
+
 							  
 			<menuitem name="Configurations" id="menu_innoving_config" sequence="20" parent="innoving_id30.menu_innoving_id30_root"
 					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
@@ -63,7 +56,15 @@
 	
 					<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="2019" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-				
+
+					<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Equipe d'identificateur" id="menu_innoving_affectation_identificateur" sequence="2025" parent="menu_innoving_config_generale"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur" />
+
+					<menuitem action="action_view_innoving_affectation_tree" name="Affectation des Identificateurs" id="menu_innoving_affectation" sequence="2030" parent="menu_innoving_config_generale"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur,group_innoving_id30_chef_equipe" />
+
+
+
 				<menuitem name="Activités économiques" id="menu_innoving_config_activite_economique" sequence="202" parent="menu_innoving_config"
 					  		groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
 			
@@ -73,6 +74,6 @@
 					<menuitem action="action_view_id30_activite_secteur_tree" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
 						id="menu_id30_activite_secteur_tree_list" name="Secteurs d'activité" parent="menu_innoving_config_activite_economique"
 						sequence="2023" />
-				
+
 	</data>
 </odoo>

@@ -160,7 +160,7 @@
 			<field name="res_model">res.partner</field>
 			<field name="view_type">form</field>
 			<field name="domain">[('company_type','=','activity')]</field>
-			<field name="view_mode">kanban,tree,form,pivot,map</field>
+			<field name="view_mode">kanban,tree,form,pivot</field>
 			<!--<field name="context">{'default_customer':1, 'search_default_customer':1, 
 				'user_ids': ""} </field> -->
 			<field name="help" type="html">
@@ -181,7 +181,7 @@
 			<field name="view_type">form</field>
 			<field name="domain">[('user_id','=',uid),('company_type','=','activity')]
 			</field>
-			<field name="view_mode">kanban,tree,form,map</field>
+			<field name="view_mode">kanban,tree,form</field>
 			<!--<field name="context">{'default_customer':1, 'search_default_customer':1, 
 				'user_ids': ""} </field> -->
 			<field name="help" type="html">

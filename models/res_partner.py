@@ -65,4 +65,4 @@ class Partner(models.Model):
         
     entreprenant_id = fields.Many2one('innoving.entreprenant', string="Entreprenant")
     ref = fields.Char(string='Reference', default=_get_default_ref)
-    fiscal_year_id = fields.Many2one('account.fiscal.year', string="Année fisclale", default=_fiscal_year)
+    fiscal_year_id = fields.Many2one('account.fiscal.year', string="Année fisclale", default=_fiscal_year),
