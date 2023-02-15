@@ -42,13 +42,14 @@
 					<field name="image" widget='image' class="oe_avatar"
                                options="{'preview_image':'image'}" />
                     <div class="oe_title">
+                    	<field name="type_entreprenant" class="oe_edit_only" widget='radio' required="1" options="{'horizontal':true}"/>
                        	<h1>
 			            	<field name="name" required="1" placeholder="Nom et prénom(s)" />
 			            </h1>
                             <field name="code"/>
                         </div>
 					<group>
-						<group string="Informations entreprenant">
+						<group string="Informations de l'entreprenant">
 							<field name="telephone"/>
 							<field name="adresse"/>
 							<field name="email"/>
@@ -60,55 +61,48 @@
 							<field name="lieu_naissance"/>
 							<field name="profession"/>
 						</group>
-						<group string="Autres Informations">
-							<field name="commune_identification"/>
-							<field name="rccm"/>
-							<field name="terminal"/>
-							<field name="date_validite_piece"/>
-							<field name="biometrie"/>
-							<field name="sous_prefecture"/>
-							<field name="commune"/>
-							<field name="milieu_implantation"/>
-							<field name="district"/>
-							<field name="region_id"/>
-							<field name="departement_id"/>
+						<group string="Informations de l'entreprise">
+							<field name="sigle_entreprise" string="Sigle"/>
+							<field name="telephone_fixe_2_entreprise"  string="Téléphone fixe 2"/>
+							<field name="telephone_portable_1_entreprise" string="Téléphone portable 1"/>
+							<field name="telephone_portable_2_entreprise" string="Téléphone portable 2"/>
+							<field name="faxe_entreprise" string="Faxe"/>
+							<field name="email_entreprise" string="E-mail"/>
+							<field name="site_web_entreprise" string="Site web"/>
+							<field name="adresse_geographique_entreprise" string="Adresse"/>
+							<field name="boite_postale_entreprise" string="Boite postale"/>
 						</group>
 					</group>
 					<group>
-						<group string="Informations repondant">
-							<field name="nom_repondant"/>
-							<field name="fonction_repondant"/>
-							<field name="contact_1_repondant"/>
-							<field name="contact_2_repondant"/>
-							<field name="email_repondant"/>
+						<group string="Informations du répondant">
+							<field name="nom_repondant" string="Nom et prénom(s)"/>
+							<field name="fonction_repondant" string="Fonction"/>
+							<field name="contact_1_repondant" string="Contact 1"/>
+							<field name="contact_2_repondant" string="Contact 2"/>
+							<field name="email_repondant" string="E-mail"/>
 						</group>
-						<group string="Informations dirigeant">
-							<field name="nom_prenom_dirigeant"/>
-							<field name="email_dirigeant"/>
-							<field name="qualite_dirigeant"/>
-							<field name="autre_qualite"/>
-						</group>
-					</group>
-					
-					<group string="Informations entréprise">
-						<group>
-							<field name="sigle_entreprise"/>
-							<field name="telephone_fixe_2_entreprise"/>
-							<field name="telephone_portable_1_entreprise"/>
-							<field name="telephone_portable_2_entreprise"/>
-							<field name="faxe_entreprise"/>
-						</group>
-						<group>
-							<field name="email_entreprise"/>
-							<field name="site_web_entreprise"/>
-							<field name="adresse_geographique_entreprise"/>
-							<field name="boite_postale_entreprise"/>
+						<group string="Informations du dirigeant">
+							<field name="nom_prenom_dirigeant" string="Nom et prénom(s)"/>
+							<field name="email_dirigeant" string="E-mail"/>
+							<field name="qualite_dirigeant"  string="Qualité"/>
+							<field name="autre_qualite"  string="Autre qulité"/>
 						</group>
 					</group>
-					
 					<notebook>
                             <page string="Informations supplementaires">
                                 <tree>
+                                	<group>
+                                        <group>
+                                            <field name="rccm"/>
+											<field name="terminal"/>
+											<field name="date_validite_piece"/>
+                                        </group>
+                                        <group>
+                                            <field name="biometrie"/>
+											<field name="milieu_implantation"/>
+											<field name="district"/>
+                                        </group>
+                                    </group>
                                     <group>
                                         <group>
                                             <field name="date_confirm"/>
@@ -120,6 +114,25 @@
                                             <field name="activity_number"/>
                                             <field name="amount_total"/>
                                             <field name="amount_paye"/>
+                                        </group>
+                                    </group>
+                                </tree>
+                            </page>
+                            
+                            <page string="Parametres systèmes">
+                                <tree>
+                                    <group>
+                                        <group>
+                                            <field name="cluster_id"/>
+                                            <field name="region_id"/>
+                                            <field name="departement_id"/>
+                                            <field name="sousprefecture_id"/>
+                                        </group>
+                                        <group>
+                                            <field name="commune_id"/>
+                                            <field name="localite_id"/>
+                                            <field name="zonerecensement_id"/>
+                                            <field name="quartier_id"/>
                                         </group>
                                     </group>
                                 </tree>

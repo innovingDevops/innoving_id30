@@ -120,15 +120,11 @@ class InnovingInnoving(models.Model):
     #activite_ids = fields.One2many('res.partner', 'entreprenant_id', string='Activité', track_visibility='always')
     
     
-    sous_prefecture = fields.Char(string="Sous Prefecture")
-    commune = fields.Char(string="Commune")
     milieu_implantation = fields.Char(string="Milieu implantation")
     district = fields.Selection(string="District", selection=[
         ('Abidjan', 'Abidjan'),
         ('Yamoussoukro', 'Yamoussoukro')
         ] , default='draft', track_visibility="always")
-    region_id = fields.Many2one("innoving.region",string="Région",track_visibility="always")
-    departement_id = fields.Many2one("innoving.departement",string="Département",track_visibility="always")
     nom_repondant = fields.Char(string=" Nom et prénoms repondant")
     fonction_repondant = fields.Char(string="Fonction repondant")
     contact_1_repondant = fields.Char(string="contact repondant 1")
@@ -148,7 +144,19 @@ class InnovingInnoving(models.Model):
     site_web_entreprise = fields.Char(string="Site web entréprise")
     adresse_geographique_entreprise = fields.Char(string="Adresse géographie entréprise")
     boite_postale_entreprise = fields.Char(string="Boite postale entréprise")
-
+    type_entreprenant = fields.Selection(string="Type entreprenant", selection=[
+        ('Formel', 'Formel'),
+        ('Informel', 'Informel')
+        ])
+    
+    cluster_id = fields.Many2one('innoving.cluster', string="Cluster")
+    region_id = fields.Many2one('innoving.region', string="Région")
+    departement_id = fields.Many2one('innoving.departement', string="Département")
+    sousprefecture_id = fields.Many2one('innoving.sous.prefecture', string="Sous préfecture")
+    commune_id = fields.Many2one('innoving.commune', string="Commune")
+    localite_id = fields.Many2one('innoving.localite', string="Localite")
+    zonerecensement_id = fields.Many2one('innoving.zone.recensement', string="Zone recensement")
+    quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
 
 
     _sql_constraints = [
@@ -175,3 +183,22 @@ class InnovingInnoving(models.Model):
         self.write({'state': 'cancel','date_cancel': fields.Date.context_today(self)})
         
     
+    
+    @api.depends('user_id')
+    def _compute_user_id(self):
+        for record in self:
+            record.update({
+                'amount_to_pay': record.amount_category - record.amount_reduction
+                })
+    @api.depends('user_id')
+    def depend_user_id(self):
+        if self.user_id:
+            self.cluster_id = self.user_id.cluster_id.id
+            self.region_id = self.user_id.region_id.id
+            self.departement_id = self.user_id.departement_id.id
+            self.sousprefecture_id = self.user_id.sousprefecture_id.id
+            self.commune_id = self.user_id.commune_id.id
+            self.localite_id = self.user_id.localite_id.id
+            self.zonerecensement_id = self.user_id.zonerecensement_id.id
+            self.quartier_id = self.user_id.quartier_id.id
+            

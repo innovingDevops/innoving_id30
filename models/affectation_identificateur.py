@@ -72,5 +72,8 @@ class InnovingCluster(models.Model):
     @api.multi
     def button_cancel(self, force=False):
         self.write({'state': 'cancel','date_cancel': fields.Date.context_today(self)})
-        
-    
+
+    @api.onchange('equipe_affected')
+    def _onchange_equipe_affected(self):
+        if self.equipe_affected:
+            self.name = "Affectation- %s" % self.equipe_affected.name    
