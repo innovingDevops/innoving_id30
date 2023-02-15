@@ -41,11 +41,6 @@ class Partner(models.Model):
         country = self.env['res.country'].search([('code', '=', 'CI')], limit=1)
 
         return country
-    
-    @api.depends('is_company')
-    def _compute_company_type(self):
-        for partner in self:
-            partner.company_type = 'company' if partner.is_company else 'activity'
             
     def _get_default_currency(self):
 
@@ -62,7 +57,21 @@ class Partner(models.Model):
         fiscal_year_id =  self.env['account.fiscal.year'].search([('date_from', '<', date_du_jour), ('date_to', '>', date_du_jour)])
         #raise UserError(_('%s') % (fiscal_year_id))      
         return fiscal_year_id
-        
+
+    @api.depends('is_company')
+    def _compute_company_type(self):
+        for partner in self:
+            partner.company_type = 'company' if partner.is_company else 'activity'
+
+
     entreprenant_id = fields.Many2one('innoving.entreprenant', string="Entreprenant")
     ref = fields.Char(string='Reference', default=_get_default_ref)
-    fiscal_year_id = fields.Many2one('account.fiscal.year', string="Année fisclale", default=_fiscal_year),
+    fiscal_year_id = fields.Many2one('account.fiscal.year', string="Année fisclale", default=_fiscal_year)
+    company_type = fields.Selection(string='Company Type',
+                                    selection=[('person', 'Individual'), ('company', 'Company'),
+                                               ('activity', 'Activité')],
+                                    compute='_compute_company_type', inverse='_write_company_type')
+    country_id = fields.Many2one('res.country', default=_get_default_country)
+    currency_id = fields.Many2one('res.currency', string='Currency', default=_get_default_currency,
+                                  track_visibility='always')
+

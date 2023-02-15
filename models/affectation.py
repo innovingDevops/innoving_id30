@@ -30,10 +30,10 @@ import string
 #from odoo.http import request
 
 
-class InnovingCluster(models.Model):
+class InnovingAffectation(models.Model):
     _name = "innoving.affectation"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = "Gestion des affectations"
+    _description = "Gestion des affectations d'ilots"
     _order = "name asc"
     
     def _get_default_user_id(self):

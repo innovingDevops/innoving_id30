@@ -2,78 +2,79 @@
 <odoo>
 	<data noupdate="0">
 		<menuitem name="ID30" id="menu_innoving_id30_root" sequence="1"
-				  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_backoffice,innoving_id30.group_innoving_id30_evaluateur,innoving_id30.group_innoving_id30_identificateur,innoving_id30.group_innoving_id30_collecteur"/>
-							
+				  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_backoffice,innoving_id30.group_innoving_id30_evaluateur,innoving_id30.group_innoving_id30_identificateur,innoving_id30.group_innoving_id30_chef_equipe"/>
+
 			<menuitem action="action_view_innoving_entreprenant_tree" name="Entreprenant" id="menu_innoving_entreprenant" sequence="5" parent="innoving_id30.menu_innoving_id30_root"
-					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
+
+					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_identificateur"/>
+
 
 	<!-- Activités -->
-			<menuitem name="Activités" id="menu_innoving_id30_activite_root"
-				sequence="10" parent="innoving_id30.menu_innoving_id30_root"
-				groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+			<menuitem name="Activités" id="menu_innoving_id30_activite_root" sequence="10" parent="innoving_id30.menu_innoving_id30_root"
+				groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_identificateur" />
 
 					<menuitem action="action_partner_supplier_activite_form"
-						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
+						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_identificateur"
 						id="menu_innoving_id30_res_partner_activites_tree_list" name="Toutes les activités"
 						parent="menu_innoving_id30_activite_root" sequence="105" />
 
 					<menuitem action="action_partner_supplier_mes_activite_form"
-						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_identificateur"
 						id="menu_res_partner_mes_activite" name="Mes activités"
 						parent="menu_innoving_id30_activite_root" sequence="1010" />
-					  
 
-							  
 			<menuitem name="Configurations" id="menu_innoving_config" sequence="20" parent="innoving_id30.menu_innoving_id30_root"
-					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
-					  
+					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_superviseur"/>
+
 				<menuitem name="Générales" id="menu_innoving_config_generale" sequence="201" parent="menu_innoving_config"
 					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
-				
+
 					<menuitem action="action_view_innoving_cluster_tree" name="Cluster" id="menu_innoving_cluster_menu" sequence="2011" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-						
+
 					<menuitem action="action_view_innoving_region_tree" name="Region" id="menu_innoving_region_menu" sequence="2012" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-				
+
 					<menuitem action="action_view_innoving_departement_tree" name="Département" id="menu_innoving_departement_menu" sequence="2013" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-	
+
 					<menuitem action="action_view_innoving_sous_prefecture_tree" name="Sous prefecture" id="menu_innoving_sous_prefecture_menu" sequence="2014" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-						
+
 					<menuitem action="action_view_innoving_commune_tree" name="Commune" id="menu_innoving_commune_menu" sequence="2015" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-					
+
 					<menuitem action="action_view_innoving_localite_tree" name="Localité" id="menu_innoving_localite_menu" sequence="2016" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-	
+
 					<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="2017" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-	
+
 					<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="2018" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-	
+
 					<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="2019" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-					<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Equipe d'identificateur" id="menu_innoving_affectation_identificateur" sequence="2025" parent="menu_innoving_config_generale"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur" />
+				<menuitem name="Affectations" id="menu_innoving_config_affectation" sequence="202" parent="menu_innoving_config"
+					  		groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_superviseur"/>
 
-					<menuitem action="action_view_innoving_affectation_tree" name="Affectation des Identificateurs" id="menu_innoving_affectation" sequence="2030" parent="menu_innoving_config_generale"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,group_innoving_id30_superviseur,group_innoving_id30_chef_equipe" />
+					<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Affectation Chefs Equipes" id="menu_innoving_affectation_identificateur" sequence="2021" parent="menu_innoving_config_affectation"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur" />
+
+					<menuitem action="action_view_innoving_affectation_tree" name="Affectation Identificateurs" id="menu_innoving_affectation" sequence="2022" parent="menu_innoving_config_affectation"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_chef_equipe" />
 
 
 
-				<menuitem name="Activités économiques" id="menu_innoving_config_activite_economique" sequence="202" parent="menu_innoving_config"
+				<menuitem name="Activités économiques" id="menu_innoving_config_activite_economique" sequence="203" parent="menu_innoving_config"
 					  		groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
-			
+
 					<menuitem action="account.actions_account_fiscal_year"	groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
-								id="menu_annee_fiscale_tree_list" name="Année fiscale" parent="menu_innoving_config_activite_economique" sequence="2021" />
-							
+								id="menu_annee_fiscale_tree_list" name="Année fiscale" parent="menu_innoving_config_activite_economique" sequence="2031" />
+
 					<menuitem action="action_view_id30_activite_secteur_tree" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
-						id="menu_id30_activite_secteur_tree_list" name="Secteurs d'activité" parent="menu_innoving_config_activite_economique"
-						sequence="2023" />
+						id="menu_id30_activite_secteur_tree_list" name="Secteurs d'activité" parent="menu_innoving_config_activite_economique" sequence="2032" />
 
 	</data>
 </odoo>
