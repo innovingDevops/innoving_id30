@@ -74,15 +74,13 @@
 						<group string="Référence">
 							<field name="ref" nolabel="1" readonly="1" />
 						</group>
-						<group>
 
-						</group>
 					</group>
+				</xpath>
 			</field>
 		</record>
 
-		<record id="res_partner_view_form_activites_inherit"
-			model="ir.ui.view">
+		<record id="res_partner_view_form_activites_inherit" model="ir.ui.view">
 			<field name="name">Activité économique</field>
 			<field name="model">res.partner</field>
 			<field name="inherit_id"

@@ -30,7 +30,7 @@ import string
 #from odoo.http import request
 
 
-class InnovingInnoving(models.Model):
+class InnovingEntreprenant(models.Model):
     _name = "innoving.entreprenant"
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Gestion des entreprenants"

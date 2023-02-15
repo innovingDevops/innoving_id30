@@ -6,6 +6,21 @@
 							
 			<menuitem action="action_view_innoving_entreprenant_tree" name="Entreprenant" id="menu_innoving_entreprenant" sequence="5" parent="innoving_id30.menu_innoving_id30_root"
 					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
+
+	<!-- Activités -->
+			<menuitem name="Activités" id="menu_innoving_id30_activite_root"
+				sequence="12" parent="innoving_id30.menu_innoving_id30_root"
+				groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+
+					<menuitem action="action_partner_supplier_activite_form"
+						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
+						id="menu_innoving_id30_res_partner_activites_tree_list" name="Toutes les activités"
+						parent="menu_innoving_id30_activite_root" sequence="121" />
+
+					<menuitem action="action_partner_supplier_mes_activite_form"
+						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
+						id="menu_res_partner_mes_activite" name="Mes activités"
+						parent="menu_innoving_id30_activite_root" sequence="122" />
 					  
 			<menuitem name="Affectation" id="menu_innoving_attribution" sequence="10" parent="innoving_id30.menu_innoving_id30_root"
 						  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"/>
