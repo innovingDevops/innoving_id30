@@ -123,16 +123,16 @@
                                 <tree>
                                     <group>
                                         <group>
-                                            <field name="cluster_id"/>
-                                            <field name="region_id"/>
-                                            <field name="departement_id"/>
-                                            <field name="sousprefecture_id"/>
+                                            <field name="cluster_id" readonly="1"/>
+                                            <field name="region_id" readonly="1"/>
+                                            <field name="departement_id" readonly="1"/>
+                                            <field name="sousprefecture_id" readonly="1"/>
                                         </group>
                                         <group>
-                                            <field name="commune_id"/>
-                                            <field name="localite_id"/>
-                                            <field name="zonerecensement_id"/>
-                                            <field name="quartier_id"/>
+                                            <field name="commune_id" readonly="1"/>
+                                            <field name="localite_id" readonly="1"/>
+                                            <field name="zonerecensement_id" readonly="1"/>
+                                            <field name="quartier_id" readonly="1"/>
                                         </group>
                                     </group>
                                 </tree>
