@@ -38,9 +38,7 @@
 							<field name="date_demarrage" readonly="1"/>
 							<field name="name" string="Code"  />
 						</group>
-
 					</group>
-
 					<group >
 						<field name="membre_ids" options="{'no_create': True, 'no_open': True}"  domain="[('type_users','=','Identificateur'),('has_equipe','=',True),('equipe_id','=',equipe_affected),]" nolabel="1">
 							<tree editable="bottom">

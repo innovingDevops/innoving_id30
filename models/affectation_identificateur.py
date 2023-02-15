@@ -76,5 +76,4 @@ class InnovingCluster(models.Model):
     @api.onchange('equipe_affected')
     def _onchange_equipe_affected(self):
         if self.equipe_affected:
-            self.name = "Affectation- %s" % self.equipe_affected.name
-    
+            self.name = "Affectation- %s" % self.equipe_affected.name    

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		
+
+	<!-- id30 Secteur Activité -->
+
+	<record id="view_id30_activite_secteur_form"
+		model="ir.ui.view">
+		<field name="name">Secteurs d'activité</field>
+		<field name="model">id30.activite.secteur</field>
+		<field name="arch" type="xml">
+			<form string="Secteurs d'activité">
+				<!--
+				<header>
+					<button name="gen_type_activite" class="btn btn-success btn-xs" string="Générer Type Activité" type="object" 
+						groups="colibri_contribuable.group_colibri_manager"/>					
+				</header>
+				-->
+				<sheet>
+					<group string="Informations du secteur d'activité">
+						<group>
+							<field name="code_secteur_activite" />
+							<field name="name" />
+							<field name='forme_activite' />
+						</group>
+						<group>
+							<field name='type_activite' />
+							<field name='type_taxe' />
+						</group>
+					</group>
+					<!--<group string="Catégories taxe">
+						<field name="categorie_taxe_ids" nolabel="1">
+							<tree>
+								<field name="code" />
+								<field name="name" />
+							</tree>
+						</field>
+					</group>
+					<group string="Taxes">
+						<field name="taxe_ids" nolabel="1" />
+
+					</group>-->
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="view_id30_activite_secteur_tree"
+		model="ir.ui.view">
+		<field name="name">Liste des secteurs d'activité</field>
+		<field name="model">id30.activite.secteur</field>
+		<field name="arch" type="xml">
+			<tree string="Les Secteurs D'Activité" toolbar="1">
+				<field name="code_secteur_activite" />
+				<field name="name" />
+				<field name='forme_activite' />
+				<field name='type_activite' />
+				<field name='type_taxe' />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_view_id30_activite_secteur_tree"
+		model="ir.actions.act_window">
+		<field name="name">Liste des secteurs d'activité</field>
+		<field name="res_model">id30.activite.secteur</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="view_id30_activite_secteur_tree" />
+		<!-- <field name="search_view_id" ref="view_account_position_filter" /> -->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Créer un nouveau secteur d'activité
+			</p>
+		</field>
+	</record>
+
+
+</odoo>

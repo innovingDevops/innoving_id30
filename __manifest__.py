@@ -16,7 +16,7 @@ You could use this simplified accounting in case you work with an (external) acc
     'category': 'documents,project',
     'website': 'https://www.innoving.info/',
     'images': [''],
-    'depends': ['base_setup','base','mass_mailing'],
+    'depends': ['base_setup','base','mass_mailing','account'],
     'data': [
         'security/group_security.xml',
         'security/ir.model.access.csv',
@@ -34,6 +34,8 @@ You could use this simplified accounting in case you work with an (external) acc
         'views/res_users_view.xml',
         'views/equipe_identificateur_view.xml',
         'views/affectation_view.xml',
+        'views/activite_secteur_view.xml',
+        'views/res_partner_view.xml',
         'views/menu_view.xml',
     ],
     'demo': [
