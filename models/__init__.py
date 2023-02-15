@@ -11,3 +11,4 @@ from . import zone_recensement
 from . import res_users
 from . import equipe
 from . import entreprenant
+from . import affectation_identificateur
