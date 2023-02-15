@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_innoving_affectation_form" model="ir.ui.view">
+		<field name="name">Affectation</field>
+		<field name="model">innoving.affectation</field>
+		<field name="arch" type="xml">
+			<form string="Affectation">
+				<header>
+					<button name="button_confirm" string="Valider"
+						type="object" class="oe_highlight" states="draft"
+						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_manager,innoving_id30.group_innoving_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_chef_equipe"
+						confirm='Etes vous sûr de vouloir valider cette affectation ?' />
+						
+
+					 
+					<button name="button_cancel" string="Annuler/Rejeter"
+						type="object" class="oe_highlight" states="confirm,valid"
+						groups="innoving_id30.group_innoving_manager"
+						confirm='Etes vous sûr de vouloir annuler/rejeter?' />
+
+					<field name="state" widget='statusbar' />
+				</header>
+				<sheet>
+					<div class="oe_button_box" name="button_box">
+						<button name="toggle_active" type="object" 
+						groups="innoving_id30.group_innoving_manager"
+                        class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        </button> 
+					</div>
+					<group>
+						<group>
+							<field name="name" readonly="1" placeholder="Affectation"/>
+						</group>
+						<group>
+							<field name="date_demarrage" readonly="1"/>
+						</group>
+						<group>
+							<field name="equipe_affected" options="{'no_create': True, 'no_open': True}" />
+								  <!-- domain="[('user_id','=',),('is_chef','=','Libre')]" /> -->
+						</group>
+					</group>
+
+					<group >
+						<field name="membre_ids" options="{'no_create': True, 'no_open': True}"  domain="[('type_users','=','Identificateur'),('has_equipe','=',True),('equipe_id','=',equipe_affected),]" nolabel="1">
+							<tree editable="bottom">
+								<field name="name"  readonly="1"  />
+								<field  name="telephone" readonly="1"  />
+								<field  name="type_users" readonly="1"  />
+								<field  name="quartier_id"  editable="bottom" options="{'no_create': True, 'no_open': True}"  />
+								<field  name="ilot_ids"  widget="many2many_tags"  domain="[('quartier_id','=',quartier_id)]" editable="bottom" options="{'no_create': True, 'no_open': True}"/>
+							</tree>
+						</field>
+					</group>
+
+				</sheet>
+   
+				<div class="oe_chatter"> <field name="message_follower_ids" widget="mail_followers" 
+					/> <field name="activity_ids" widget="mail_activity" /> <field name="message_ids" 
+					widget="mail_thread" /> </div>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_innoving_affectation_pivot">
+		<field name="name">Liste des affectations</field>
+		<field name="model">innoving.affectation</field>
+		<field name="arch" type="xml">
+			<pivot string="Liste des affectations">
+				<field name="name" type="row"/>
+				<field name="date_ajout" type="row" />
+				<field name="user_id" type="measure" />
+			</pivot>
+		</field>
+	</record>
+	<record id="view_innoving_affectation_tree" model="ir.ui.view">
+		<field name="name">Liste des affectations</field>
+		<field name="model">innoving.affectation</field>
+		<field name="arch" type="xml">
+			<tree string="Mes affectations" toolbar="1">
+				<field name="name"/>
+				<field name="date_demarrage"/>
+				<field name="equipe_affected"/>
+				<field name="date_ajout"/>
+			</tree>
+		</field>
+	</record>
+	<record id="action_view_innoving_affectation_tree"
+		model="ir.actions.act_window">
+		<field name="name">Mes affectations</field>
+		<field name="res_model">innoving.affectation</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,pivot</field>
+		<field name="view_id" ref="view_innoving_affectation_tree" />
+		<!-- declaration de la search vue
+		<field name="search_view_id" ref="innoving_equipe_identificateur_view_search" />-->
+		<field name="help" type="html">
+			<p class="o_view_nocontent_smiling_face">
+				Enregistrer une nouvelle affectation
+			</p>
+		</field>
+	</record>
+</odoo>
