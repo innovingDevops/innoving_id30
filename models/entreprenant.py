@@ -185,12 +185,6 @@ class InnovingEntreprenant(models.Model):
     
     
     @api.depends('user_id')
-    def _compute_user_id(self):
-        for record in self:
-            record.update({
-                'amount_to_pay': record.amount_category - record.amount_reduction
-                })
-    @api.depends('user_id')
     def depend_user_id(self):
         if self.user_id:
             self.cluster_id = self.user_id.cluster_id.id
@@ -201,4 +195,5 @@ class InnovingEntreprenant(models.Model):
             self.localite_id = self.user_id.localite_id.id
             self.zonerecensement_id = self.user_id.zonerecensement_id.id
             self.quartier_id = self.user_id.quartier_id.id
-            
+
+    
