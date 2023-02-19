@@ -158,6 +158,9 @@ class InnovingEntreprenant(models.Model):
     zonerecensement_id = fields.Many2one('innoving.zone.recensement', string="Zone recensement")
     quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
 
+    activite_ids = fields.One2many('res.partner', 'entreprenant_id', string='Activités', track_visibility='always')
+
+
 
     _sql_constraints = [
         ("telephone_uniq", "unique(telephone)", "Le numéro de téléphone de l'entreprenant doit être unique !"),

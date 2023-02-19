@@ -14,6 +14,7 @@
 			</field>
 		</record>
 
+
 		<record id="res_partner_view_form_activite_inherit"
 			model="ir.ui.view">
 			<field name="name">Activité économique </field>
@@ -23,10 +24,9 @@
 				<xpath expr="//form//sheet" position="before">
 					<header>
 
-					
+
 					</header>
 				</xpath>
-
 
 				<field name="parent_id" position="after">
 					<field name="entreprenant_id" readonly="1"/>
@@ -69,16 +69,137 @@
 				<page name="accounting" position="attributes">
 					<attribute name="invisible">1</attribute>
 				</page>
+
+				<page name="accounting" position="replace">
+					<page name="custom_page" string="My page">
+							<field name="fiscal_year_id" nolabel="1" readonly="1" />
+					</page>
+				</page>
+
 				<xpath expr="//group" position="before">
 					<group col="2" colspan="2">
 						<group string="Référence">
 							<field name="ref" nolabel="1" readonly="1" />
 						</group>
-
+						<group string="Année fiscale">
+							<field name="fiscal_year_id" nolabel="1" readonly="1" />
+						</group>
 					</group>
+					<group col="2" colspan="2" >
+						<group string="Identification de l'entreprise">
+							<field name="name" string="Nom"/>
+							<field name="activity_birthday" string="Date de création"/>
+							<field name="street"/>
+							<field name="street3" string="Rue 2  "/>
+							<field name="city"/>
+							<field name="zone_id" />
+							<field name="regime_fiscale"/>
+							<field name="chiffre_affaire_taxable"/>
+							<field name="min_ca" string="Chiffre affaire Min"/>
+							<field name="max_ca" string="Chiffre affaire Max"/>
+						</group>
+						<group string="Information sur l'activicté">
+							<field name="secteur_id"/>
+							<field name="activite_type_id"/>
+							<field name="forme_activite" />
+							<field name="type_taxe" />
+							<field name="cga" />
+							<field name="date_adhesion" />
+							<field name="ref_cga" />
+							<field name="periode_imposition" />
+							<field name="taux_imposition" />
+							<field name="taille_activite" />
+						</group>
+					</group>
+					<group col="2" colspan="2" >
+						<group string="Information INS 1">
+							<field name="ciap" string="CIAP(INS)"/>
+							<field name="longueur"/>
+							<field name="largeur"/>
+							<field name="odp"/>
+							<field name="baux_loyer"/>
+							<field name="pub_longueur"/>
+							<field name="pub_largeur"/>
+							<field name="pub_en_mettre_carre"/>
+							<field name="pub_longueur_2"/>
+							<field name="pub_largeur_2"/>
+							<field name="pub_en_mettre_carre_2"/>
+						</group>
+						<group string="Information INS 2">
+							<field name="partner_latitude" string="Latitude"/>
+							<field name="partner_longitude" string="Longitude"/>
+							<field name="idu_cepici" string="avez vous un IDU ?"/>
+							<field name="idu_communicable"/>
+							<field name="numero_idu"/>
+							<field name="numero_idu"/>
+							<field name="lettre_fin_idu"/>
+							<field name="autre_type_activite"/>
+							<field name="activicte_2"/>
+						</group>
+					</group>
+					<group col="2" colspan="2" >
+						<group string="Régime sociale" >
+							<field name="etat_activite" string="Etat d’activité de l'entreprise"/>
+							<field name="forme_juridique" string="Forme juridique"  />
+							<field name="autre_forme_juridique" string=" Autre forme juridique"/>
+							<field name="capital_en_action" string="l'entreprise est-elle à capitaux:"/>
+							<field name="name_actionnaire" string="Nom actionnaire"/>
+							<field name="type_actionnaire" string="Type actionnaire" />
+							<field name="sexe_actionnaire" string="sexe actionnaire"/>
+							<field name="nationalite_actionnaire" string="Nationnalité actionnaire"/>
+							<field name="montant_action" string="Montant action"/>
+							<field name="part_sociale_actionnaire"/>
+							<field name="autre_actionnaire"/>
+						</group>
+						<group string="Régime sociale 2">
+							<field name="ca_ht_n_1" string="CA Hors taxe 2021"/>
+							<field name="ca_ht_n_2"  string="CA Hors taxe 2020"/>
+							<field name="ca_ht_n_3"  string="CA Hors taxe 2019"/>
+							<field name="valeur_ajoute_brute_n_1" string="Mt valeur ajoutée (VA) brute en 2021"/>
+							<field name="valeur_ajoute_brute_n_2" string="Mt VA brute en 2020"/>
+							<field name="valeur_ajoute_brute_n_3" string="Mt VA brute en 2019"/>
+							<field name="export_produit" string="Exportation en partie ou total"/>
+							<field name="valeur_export_n_1" string="Valeur de vos Exportations (VEx) en 2021"/>
+							<field name="valeur_export_n_2" string="VEx en 2020"/>
+							<field name="valeur_export_n_3" string="VEx en 2019"/>
+						</group>
+					</group>
+					<group col="2" colspan="2" >
+						<group string="Contraintes  par ordre d'importance 1 -10" >
+							<field name="manque_personnel_qualifie"/>
+							<field name="cout_eleve_main_oeuvre"/>
+							<field name="formalite_administrative_contraignante"/>
+							<field name="taxe_impot_eleve"/>
+							<field name="cout_tranport_eleve"/>
+							<field name="mauvais_etat_infrastructure"/>
+							<field name="difficulte_approvisionnement_matiere_premiere"/>
+							<field name="procedure_contentieux"/>
+							<field name="ecoulement_production"/>
+							<field name="acces_au_technologie"/>
+							<field name="manque_machine"/>
+						</group>
+						<group string="Contraintes  par ordre d'importance 11-19" >
+							<field name="manque_expertise_technique"/>
+							<field name="manque_local_adapte"/>
+							<field name="acces_commande_public"/>
+							<field name="acces_strucutre_appui"/>
+							<field name="acces_credit_bancaire"/>
+							<field name="approvisionnement_energie"/>
+							<field name="concurrence_deloyale"/>
+							<field name="corruption"/>
+							<field name="autre_contrainte"/>
+							<field name="aucune_contrainte"/>
+						</group>
+					</group>
+
 				</xpath>
+
+
 			</field>
 		</record>
+
+
+
 
 		<record id="res_partner_view_form_activites_inherit" model="ir.ui.view">
 			<field name="name">Activité économique</field>
