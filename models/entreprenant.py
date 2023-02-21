@@ -120,11 +120,11 @@ class InnovingEntreprenant(models.Model):
     #activite_ids = fields.One2many('res.partner', 'entreprenant_id', string='Activité', track_visibility='always')
     
     
-    milieu_implantation = fields.Char(string="Milieu implantation")
-    district = fields.Selection(string="District", selection=[
-        ('Abidjan', 'Abidjan'),
-        ('Yamoussoukro', 'Yamoussoukro')
-        ] , track_visibility="always")
+    milieu_implantation = fields.Selection(string="Milieu implantation", selection=[
+        ('1', 'Urbain'),
+        ('2', 'Rural')
+        ], track_visibility="always")
+    district_id = fields.Many2one('innoving.district', string="District")
     nom_repondant = fields.Char(string=" Nom et prénoms repondant")
     fonction_repondant = fields.Char(string="Fonction repondant")
     contact_1_repondant = fields.Char(string="contact repondant 1")
@@ -132,14 +132,20 @@ class InnovingEntreprenant(models.Model):
     email_repondant = fields.Char(string="E-mail repondant")
     nom_prenom_dirigeant = fields.Char(string="Non et prenoms dirigeant")
     email_dirigeant = fields.Char(string="E-mail dirigeant")
-    qualite_dirigeant = fields.Char(string="Qualité dirigeant")
-    autre_qualite = fields.Char(string="Autres qualité")
-    
+    qualite_dirigeant = fields.Selection(string="Qualité dirigeant", selection=[
+        ('1', 'Président du Conseil d’Administration'),
+        ('2', 'Directeur Général'),
+        ('3', 'Administrateur Général'),
+        ('4', 'Gérant'),
+        ('5', 'Exploitant'),
+        ('6', 'Autre à préciser')
+    ])
+    autre_qualite = fields.Char(string="Autre qualité")
     sigle_entreprise = fields.Char(string="Sigle entréprise")
     telephone_fixe_2_entreprise = fields.Char(string="Tel fixe entreprise")
     telephone_portable_1_entreprise = fields.Char(string="Tel 1 entréprise")
     telephone_portable_2_entreprise = fields.Char(string="Tel 2 entréprise")
-    faxe_entreprise = fields.Char(string="Fax entréprise")
+    fax_entreprise = fields.Char(string="Fax entréprise")
     email_entreprise = fields.Char(string="E-mail entréprise")
     site_web_entreprise = fields.Char(string="Site web entréprise")
     adresse_geographique_entreprise = fields.Char(string="Adresse géographie entréprise")

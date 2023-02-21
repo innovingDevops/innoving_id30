@@ -66,7 +66,7 @@
 							<field name="telephone_fixe_2_entreprise"  string="Téléphone fixe 2"/>
 							<field name="telephone_portable_1_entreprise" string="Téléphone portable 1"/>
 							<field name="telephone_portable_2_entreprise" string="Téléphone portable 2"/>
-							<field name="faxe_entreprise" string="Faxe"/>
+							<field name="fax_entreprise" string="Faxe"/>
 							<field name="email_entreprise" string="E-mail"/>
 							<field name="site_web_entreprise" string="Site web"/>
 							<field name="adresse_geographique_entreprise" string="Adresse"/>
@@ -85,7 +85,7 @@
 							<field name="nom_prenom_dirigeant" string="Nom et prénom(s)"/>
 							<field name="email_dirigeant" string="E-mail"/>
 							<field name="qualite_dirigeant"  string="Qualité"/>
-							<field name="autre_qualite"  string="Autre qulité"/>
+							<field name="autre_qualite"  string="Autre qualité"/>
 						</group>
 					</group>
 					<group string="Activités économiques">
@@ -103,7 +103,7 @@
                                         <group>
                                             <field name="biometrie"/>
 											<field name="milieu_implantation"/>
-											<field name="district"/>
+											<field name="district_id"/>
                                         </group>
                                     </group>
                                     <group>

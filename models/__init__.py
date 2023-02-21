@@ -14,3 +14,4 @@ from . import entreprenant
 from . import res_partner
 from . import affectation
 from . import activite_secteur
+from . import district

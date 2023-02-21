@@ -44,16 +44,20 @@
 					<menuitem action="action_view_innoving_commune_tree" name="Commune" id="menu_innoving_commune_menu" sequence="2015" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-					<menuitem action="action_view_innoving_localite_tree" name="Localité" id="menu_innoving_localite_menu" sequence="2016" parent="menu_innoving_config_generale"
+					<menuitem action="action_view_innoving_district_tree" name="District" id="menu_innoving_district_menu" sequence="2020" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-					<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="2017" parent="menu_innoving_config_generale"
+
+					<menuitem action="action_view_innoving_localite_tree" name="Localité" id="menu_innoving_localite_menu" sequence="2025" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-					<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="2018" parent="menu_innoving_config_generale"
+					<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="2030" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-					<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="2019" parent="menu_innoving_config_generale"
+					<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="2035" parent="menu_innoving_config_generale"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+
+					<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="2040" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
 				<menuitem name="Affectations" id="menu_innoving_config_affectation" sequence="202" parent="menu_innoving_config"

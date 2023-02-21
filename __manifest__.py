@@ -36,6 +36,7 @@ You could use this simplified accounting in case you work with an (external) acc
         'views/affectation_view.xml',
         'views/activite_secteur_view.xml',
         'views/res_partner_view.xml',
+        'views/district_view.xml',
         'views/menu_view.xml',
     ],
     'demo': [
