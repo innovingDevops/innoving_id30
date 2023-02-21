@@ -124,7 +124,7 @@ class InnovingEntreprenant(models.Model):
     district = fields.Selection(string="District", selection=[
         ('Abidjan', 'Abidjan'),
         ('Yamoussoukro', 'Yamoussoukro')
-        ] , default='draft', track_visibility="always")
+        ] , track_visibility="always")
     nom_repondant = fields.Char(string=" Nom et prénoms repondant")
     fonction_repondant = fields.Char(string="Fonction repondant")
     contact_1_repondant = fields.Char(string="contact repondant 1")
