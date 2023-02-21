@@ -88,6 +88,9 @@
 							<field name="autre_qualite"  string="Autre qulité"/>
 						</group>
 					</group>
+					<group string="Activités économiques">
+						<field name="activite_ids"  nolabel="1"/>
+					</group>
 					<notebook>
                             <page string="Informations supplementaires">
                                 <tree>
