@@ -165,8 +165,11 @@ class Partner(models.Model):
     approvisionnement_energie = fields.Char(string="q: Difficultés d'approvisionnement en énergie")
     concurrence_deloyale = fields.Char(string="r: Concurrence déloyale")
     corruption = fields.Char(string="s: Corruption (racket, pot de vins, etc.)")
-    autre_contrainte = fields.Char(string="t. Autre contrainte (à préciser)")
+    autre_contrainte = fields.Selection(string="t Autre contrainte (à préciser)", selection=[('oui', 'oui'), ('non', 'non')])
     aucune_contrainte = fields.Boolean(string="u. Aucune contrainte")
+    precise_contrainte = fields.Char(string="u: Corruption (racket, pot de vins, etc.)")
+
+
 
 
 
