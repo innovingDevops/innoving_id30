@@ -7,7 +7,7 @@
 	<record id="view_id30_activite_secteur_form"
 		model="ir.ui.view">
 		<field name="name">Secteurs d'activité</field>
-		<field name="model">id30.activite.secteur</field>
+		<field name="model">innoving.secteur.activite</field>
 		<field name="arch" type="xml">
 			<form string="Secteurs d'activité">
 				<!--
@@ -47,7 +47,7 @@
 	<record id="view_id30_activite_secteur_tree"
 		model="ir.ui.view">
 		<field name="name">Liste des secteurs d'activité</field>
-		<field name="model">id30.activite.secteur</field>
+		<field name="model">innoving.secteur.activite</field>
 		<field name="arch" type="xml">
 			<tree string="Les Secteurs D'Activité" toolbar="1">
 				<field name="code_secteur_activite" />
@@ -62,7 +62,7 @@
 	<record id="action_view_id30_activite_secteur_tree"
 		model="ir.actions.act_window">
 		<field name="name">Liste des secteurs d'activité</field>
-		<field name="res_model">id30.activite.secteur</field>
+		<field name="res_model">innoving.secteur.activite</field>
 		<field name="view_type">form</field>
 		<field name="view_mode">tree,form</field>
 		<field name="view_id" ref="view_id30_activite_secteur_tree" />

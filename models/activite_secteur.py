@@ -30,8 +30,8 @@ import string
 #from odoo.http import request
 
 
-class Id30ActiviteSecteur(models.Model):
-    _name = "id30.activite.secteur"
+class InnovingSecteurActivite(models.Model):
+    _name = "innoving.secteur.activite"
     _description = "Permet de gérer les secteurs d'activité id30"
 
     name = fields.Char(string='Secteur activité')

@@ -131,7 +131,7 @@
 							<field name="idu_cepici" string="avez vous un IDU ?"/>
 							<field name="idu_communicable"/>
 							<field name="numero_idu"/>
-							<field name="numero_idu"/>
+							<field name="chiffre_idu"/>
 							<field name="lettre_fin_idu"/>
 							<field name="autre_type_activite"/>
 							<field name="activicte_2"/>
@@ -182,7 +182,7 @@
 							<field name="manque_expertise_technique"/>
 							<field name="manque_local_adapte"/>
 							<field name="acces_commande_public"/>
-							<field name="acces_strucutre_appui"/>
+							<field name="acces_structure_appui"/>
 							<field name="acces_credit_bancaire"/>
 							<field name="approvisionnement_energie"/>
 							<field name="concurrence_deloyale"/>
