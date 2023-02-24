@@ -20,7 +20,8 @@ You could use this simplified accounting in case you work with an (external) acc
     'data': [
         'security/group_security.xml',
         'security/ir.model.access.csv',
-        #'data/data_sequence.xml',  
+        #'data/data_sequence.xml',
+        'data/data_type_contrainte.xml',
         'views/cluster_view.xml',
         'views/commune_view.xml',
         'views/departement_view.xml',
@@ -36,6 +37,7 @@ You could use this simplified accounting in case you work with an (external) acc
         'views/affectation_view.xml',
         'views/activite_secteur_view.xml',
         'views/type_activite_view.xml',
+        'views/contrainte_activite_view.xml',
         'views/res_partner_view.xml',
         'views/district_view.xml',
         'views/menu_view.xml',

@@ -192,6 +192,106 @@
 						</group>
 					</group>
 
+					<group col="2" colspan="2">
+						<group string="Nouveau champ">
+							<field name="autre_activte"/>
+							<field name="autre_activite_precision"/>
+							<field name="autre_local"/>
+							<field name="autre_moyen_comptable"/>
+							<field name="autre_status_local"/>
+							<field name="code_ciap"/>
+							<field name="communique_registre_metier"/>
+							<field name="connexion_internet"/>
+							<field name="contrainte_rencontre" widget="many2many_tags"/>
+							<field name="declaration_cnps"/>
+
+						</group>
+						<group string="Nouveau champ2">
+							<field name="designation_activite"/>
+							<field name="deux_1er_chiffre_rm"/>
+							<field name="deux_1er_lettre_rm"/>
+							<field name="deux_dernier_lettre_rm"/>
+							<field name="doc_fin_exercice"/>
+							<field name="effectif_nationaux_femme_permanent"/>
+							<field name="effectif_nationaux_femme_temporaire"/>
+							<field name="effectif_nationaux_homme_permanent"/>
+							<field name="effectif_nationaux_homme_temporaire"/>
+							<field name="effectif_non_nationaux_femme"/>
+						</group>
+					</group>
+
+					<group col="2" colspan="2">
+						<group string="Nouveau champ 3">
+							<field name="effectif_non_nationaux_femme_permanent"/>
+							<field name="effectif_non_nationaux_femme_temporaire"/>
+							<field name="effectif_non_nationaux_homme"/>
+							<field name="effectif_non_nationaux_homme_permanent"/>
+							<field name="effectif_non_nationaux_homme_temporaire"/>
+							<field name="effectif_total"/>
+							<field name="effectif_total_femme"/>
+							<field name="effectif_total_homme"/>
+							<field name="effectif_total_nationaux_femme"/>
+							<field name="effectif_total_nationaux_homme"/>
+						</group>
+						<group string="Nouveau champ 4">
+							<field name="etat_fonctionnement_entreprise"/>
+							<field name="etat_infrastructure"/>
+							<field name="import_produit"/>
+							<field name="import_service"/>
+							<field name="local_activicte"/>
+							<field name="masse_salariale_nationaux_permanent"/>
+							<field name="masse_salariale_nationaux_temporaire"/>
+							<field name="masse_salariale_non_nationaux_permanent"/>
+							<field name="masse_salariale_non_nationaux_temporaire"/>
+							<field name="masse_salariale_total"/>
+
+						</group>
+					</group>
+					<group col="2" colspan="2">
+						<group string="Nouveau champ 5">
+							<field name="masse_salariale_total_nationaux"/>
+							<field name="masse_salariale_total_non_nationaux"/>
+							<field name="montant"/>
+							<field name="montant_charge_mensuelle"/>
+							<field name="montant_total_actif"/>
+							<field name="montant_total_actif_immobiliser"/>
+							<field name="montant_total_capiteaux_propre"/>
+							<field name="montant_total_charge_ordinaire"/>
+							<field name="montant_total_impot_taxe"/>
+							<field name="montant_total_ressource_stable"/>
+							<field name="montant_vente_maximum_realiser"/>
+
+						</group>
+						<group string="Nouveau champ 6">
+							<field name="montant_vente_minimum_realiser"/>
+							<field name="moyen_comptable"/>
+							<field name="name_activite_secondaire"/>
+							<field name="nombre_etablissement"/>
+							<field name="num_compte_contribuable"/>
+							<field name="num_registre_commerce"/>
+							<field name="num_registre_metier"/>
+							<field name="numero_cnps"/>
+							<field name="numero_cnps_communicable"/>
+							<field name="periodicite"/>
+							<field name="quatre_chiffre_rm"/>
+
+						</group>
+					</group>
+					<group col="2" colspan="2">
+						<group string="Nouveau champ 5">
+							<field name="registre_metier"/>
+							<field name="sept_chiffre_rm"/>
+							<field name="statut_comptabilite_formel"/>
+							<field name="statut_compte_contribuable"/>
+							<field name="statut_entreprise"/>
+							<field name="statut_local"/>
+							<field name="statut_registre_commerce"/>
+							<field name="type_entreprise"/>
+							<field name="utilisation_logiciel_metier"/>
+
+						</group>
+					</group>
+
 				</xpath>
 
 

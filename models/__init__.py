@@ -16,3 +16,4 @@ from . import affectation
 from . import activite_secteur
 from . import district
 from . import type_activite
+from . import contrainte_activite

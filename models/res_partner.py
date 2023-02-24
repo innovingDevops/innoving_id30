@@ -79,7 +79,8 @@ class Partner(models.Model):
     ref = fields.Char(string='Reference', default=_get_default_ref)
     fiscal_year_id = fields.Many2one('account.fiscal.year', string="Année fisclale", default=_fiscal_year)
     company_type = fields.Selection(string='Company Type',
-                                    selection=[('person', 'Individual'), ('company', 'Company'),
+                                    selection=[('person', 'Individual'),
+                                               ('company', 'Company'),
                                                ('activity', 'Activité')],
                                     compute='_compute_company_type', inverse='_write_company_type')
     country_id = fields.Many2one('res.country', default=_get_default_country)
@@ -165,7 +166,7 @@ class Partner(models.Model):
     numero_idu = fields.Char(string="C16.a: Si oui, donner ce numéro IDU")
     chiffre_idu = fields.Integer(string="Saisir les 13 chiffres de l'IDU")
     lettre_fin_idu = fields.Char(string="Saisir la lettre de fin de l'IDU")
-    autre_type_activite = fields.Selection( string="Faites-vous une autre activite", selection=[('Oui', 'Oui'), ('Non', 'Non')])
+    autre_type_activite = fields.Selection( string="Avez-vous une autre activite", selection=[('Oui', 'Oui'), ('Non', 'Non')])
     activicte_2 = fields.Many2one('innoving.type.activite', string="Activite")
 
     #rubrique Régime sociale
@@ -236,6 +237,105 @@ class Partner(models.Model):
     precise_contrainte = fields.Char(string="u: Précisez la contrainte )")
     aucune_contrainte = fields.Selection(string="u. Aucune contrainte", selection=[('1', 'Oui'), ('0', 'Non')])
 
+    #ajout champ informel
+    autre_activte = fields.Selection(string="Autre activité secondaire? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    autre_activite_precision = fields.Char(string="Précisez l'activicté ")
+    autre_local = fields.Char(string=" C18.a: Autre local à préciser")
+    autre_moyen_comptable = fields.Char(string="C16.a: Autre moyen de comptabilité à préciser ")
+    autre_status_local = fields.Char(string="C19.a: Autre statut de terrain à préciser ")
+    code_ciap = fields.Char(string="Code CIAP (activité secondaire) ")
+    communique_registre_metier = fields.Selection(string="Pouvez-vous nous communiquer ce numéro RM? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    connexion_internet = fields.Selection(string="C22: Votre entreprise/établissement dispose-t-elle/il d’une connexion internet ? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    contrainte_rencontre = fields.Many2many('innoving.contrainte.activite','innoving_partner_contrainte_rel', 'activite_id', 'contrainte_activite_id',
+                                            string="E1: Quelles sont les principales contraintes que votre entreprise rencontre dans le cadre de votre activité (choix multiples) ?")
+    declaration_cnps = fields.Selection(string="C15: Votre entreprise est-elle déclarée à la CNPS? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    designation_activite = fields.Char(string=" Désignation de l'activité")
+    deux_1er_chiffre_rm = fields.Integer(string=" Saisir les 2 premièrs chiffres du RM")
+    deux_1er_lettre_rm = fields.Char(string=" Saisir les 2 premières lettres du RM")
+    deux_dernier_lettre_rm = fields.Char(string="Saisir les 2 dernières lettres du RM")
+    doc_fin_exercice = fields.Selection(string="Votre entreprise produit-elle un document comptable en fin d’exercice ? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    effectif_nationaux_femme_permanent = fields.Integer(string=" D6a3f: Quel est l'effectif des nationaux femmes permanentes en 2021 ?")
+    effectif_nationaux_femme_temporaire = fields.Integer(string=" D6a4f: Quel est l'effectif des nationaux femmes Saisonniers/temporaires en 2021 ?")
+    effectif_nationaux_homme_permanent = fields.Integer(string=" D6a3h: Quel est l'effectif nationaux hommes permanents en 2021 ?")
+    effectif_nationaux_homme_temporaire = fields.Integer(string=" D6a4h: Quel est l'effectif nationaux hommes Saisonniers/temporaires en 2021 ?")
+    effectif_non_nationaux_femme = fields.Integer(string=" D6a5f: Quel est l'effectif total des non nationaux femmes en 2021 ?")
+    effectif_non_nationaux_femme_permanent = fields.Integer(string=" D6a6f: Quel est l'effectif des non nationaux femmes permanentes en 2021 ?")
+    effectif_non_nationaux_femme_temporaire = fields.Integer(string=" D6a7f: Quel est l'effectif des non nationaux femmes Saisonniers/temporaires en 2021 ?")
+    effectif_non_nationaux_homme = fields.Integer(string=" D6a5h: Quel est l'effectif total des non nationaux hommes en 2021 ?")
+    effectif_non_nationaux_homme_permanent = fields.Integer(string=" D6a6h: Quel est l'effectif non nationaux hommes permanents en 2021 ?")
+    effectif_non_nationaux_homme_temporaire = fields.Integer(string=" D6a7h: Quel est l'effectif non nationaux hommes Saisonniers/temporaires en 2021 ?")
+    effectif_total = fields.Integer(string=" D6 : Quel est l’effectif total de votre entreprise/établissement en 2021?")
+    effectif_total_femme = fields.Integer(string=" D6a1f: Quel est l'effectif total femmes de votre entreprise/établissement en 2021")
+    effectif_total_homme = fields.Integer(string=" D6a1h: Quel est l'effectif total hommes de votre entreprise/établissement en 2021 ?")
+    effectif_total_nationaux_femme = fields.Integer(string=" D6a2f: Quel est l'effectif total des nationaux femmes en 2021 ?")
+    effectif_total_nationaux_homme = fields.Integer(string=" D6a2h: Quel est l'effectif total des nationaux hommes en 2021 ?")
+    etat_fonctionnement_entreprise = fields.Selection(string="C21 : Quel est l’état d’activité de l'entreprise ? ",
+                                                      selection=[('1', 'En activité'),
+                                                                ('2', 'En veille / Arrêt momentané'),
+                                                                ('3', 'Activité en attente de démarrage'),
+                                                                ('4', "Cessation d'activité")])
+    etat_infrastructure = fields.Selection(string=" f: Mauvais état des infrastructures routières", selection=[('1', 'Oui'), ('0', 'Non')])
+    import_produit = fields.Selection(string="D5: Importez-vous en partie ou en totalité vos marchandises ou matières premières ? ", selection=[('1', 'En partie'), ('2', 'En totalité'),('3', 'Non')])
+    import_service = fields.Selection(string="D5: Importez-vous en partie ou en totalité vos produis ou services ? ", selection=[('1', 'En partie'), ('2', 'En totalité'),('3', 'Non')])
+    local_activicte = fields.Selection(string=" C18: Dans quel type de local exercez-vous votre activité ? ",
+                                       selection=[('1', 'Bureau / Bâtiment'),
+                                                  ('2', 'Hangar'),
+                                                  ('3', 'Baraque'),
+                                                  ('4', 'Box'),
+                                                  ('5', 'Magasin/Entrepôt'),
+                                                  ('6', 'Local fixe dans un marché'),
+                                                  ('7', 'A domicile'),
+                                                  ('8', 'Carrière'),
+                                                  ('9', 'Conteneur'),
+                                                  ('10', 'A ciel ouvert'),
+                                                  ('11', 'Autres à préciser')])
+    masse_salariale_nationaux_permanent = fields.Float(string=" D6a3ms: Quel est la masse salariale des nationaux permanents en 2021 ?")
+    masse_salariale_nationaux_temporaire = fields.Float(string=" D6a4ms: Quel est la masse salariale des nationaux Saisonniers/temporaires en 2021 ?")
+    masse_salariale_non_nationaux_permanent = fields.Float(string=" D6a6ms: Quel est la masse salariale des non nationaux permanents en 2021 ?")
+    masse_salariale_non_nationaux_temporaire = fields.Float(string=" D6a7ms: Quel est la masse salariale des non nationaux Saisonniers/temporaires en 2021 ?")
+    masse_salariale_total = fields.Float(string=" D6a1ms: Quel est la masse salariale totale en FCFA de votre entreprise/établissement en 2021 ?")
+    masse_salariale_total_nationaux = fields.Float(string=" D6a2ms: Quel est la masse salariale totale des nationaux de votre entreprise/établissement en 2021 ?")
+    masse_salariale_total_non_nationaux = fields.Float(string=" D6a5ms: Quel est la masse salariale totale des non nationaux de votre entreprise/établissement en 2021 ?")
+    montant = fields.Float(string=" Montant ")
+    montant_charge_mensuelle = fields.Float(string=" D2. Quel est le montant total des charges mensuelles liées à votre activité (en FCFA) en 2021 ?")
+    montant_total_actif = fields.Float(string=" D9 Quel est le montant total des Actif (en FCFA)")
+    montant_total_actif_immobiliser = fields.Float(string=" D8 Quel est le montant total des Actifs immobilisés (en FCFA)")
+    montant_total_capiteaux_propre = fields.Float(string=" D7 Quel est le montant total des Capitaux propres (en FCFA)")
+    montant_total_charge_ordinaire = fields.Float(string=" D11 Quel est le montant total des charges ordinaires (en FCFA)")
+    montant_total_impot_taxe = fields.Float(string=" D12 Quel est le montant total des Impôts et taxes (en FCFA)")
+    montant_total_ressource_stable = fields.Float(string=" D10 Quel est le montant total des Ressources stables (en FCFA)")
+    montant_vente_maximum_realiser = fields.Float(string=" D3.b: Quelles est le montant maximum de vos ventes mensuelles (en FCFA) réalisées au cours des 12 derniers mois ?")
+    montant_vente_minimum_realiser = fields.Float(string=" D3.a: Quelles est le montant minimum de vos ventes mensuelles (en FCFA) réalisées au cours des 12 derniers mois ?")
+    moyen_comptable = fields.Selection(string="C16 : Quel moyen principal utilisez-vous pour votre comptabilité ? ", selection=[
+        ('1', 'Carnet ou cahier de dépenses et recettes'),
+        ('2', 'Fiche de caisse informatiséeé'),
+        ('3', 'Aucun'),
+        ('4', 'Autre à préciser')])
+    name_activite_secondaire = fields.Char(string="Désignation de l'activité secondaire ")
+    nombre_etablissement = fields.Char(string="C20.b: Combien d’établissements avez-vous ? ")
+    num_compte_contribuable = fields.Char(string="Si oui, donnez le numéro de compte contribuable ")
+    num_registre_commerce = fields.Char(string="Si oui, donnez le numéro de registre de commerce ")
+    num_registre_metier  = fields.Char(string="C14.a: Si oui, donnez le numéro de registre de métier ")
+    numero_cnps = fields.Integer(string="C15.a: Si oui, donnez le numéro CNPS (en 7 chiffres) ")
+    numero_cnps_communicable = fields.Selection(string="Pouvez-vous nous communiquer ce numéro CNPS? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    periodicite = fields.Selection(string=" Périodicité", selection=[('1', 'Jour'), ('2', 'Semaine'),('3','Mois'),('4','Année')])
+    quatre_chiffre_rm = fields.Float(string=" Saisir les 4 chiffres précedents les 2 lettres saisies du RM", selection=[('1', 'Oui'), ('2', 'Non')])
+    registre_metier = fields.Selection(string="C14: Votre entreprise dispose-t-elle d’un numéro de registre Métier (RM)? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    sept_chiffre_rm = fields.Integer(string="Saisir les 7 derniers chiffres du RM ")
+    statut_comptabilite_formel = fields.Selection(string="Votre entreprise tient-elle, une comptabilité formelle écrite ? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    statut_compte_contribuable = fields.Selection(string="Votre entreprise dispose t-elle d'un numéro de compte contribuable(NCC)? ", selection=[('1', 'Oui'), ('2', 'Non')])
+    statut_entreprise = fields.Selection(string="C20.a: Quel est le statut de votre entreprise/établissement ? ",
+                                         selection=[('1', 'Établissement principal'),
+                                                    ('2', 'Établissement secondaire'),
+                                                    ('3', 'Établissement unique')])
+    statut_local = fields.Selection(string="C19 : Quel est le statut du terrain sur lequel votre entreprise/établissement est localisé(e) ? ",
+                                    selection=[('1', 'Occupation du domaine public'),
+                                                ('2', 'Propriétaire du local/terrain'),
+                                                ('3', 'Espace dédié autorisé'),
+                                                ('4', 'Autre à préciser')])
+    statut_registre_commerce = fields.Selection(string=" Votre entreprise dispose-t-elle d’un numéro de Registre de Commerce (RC)?", selection=[('1', 'Oui'), ('2', 'Non')])
+    type_entreprise = fields.Selection(string="Votre structure est-elle une Organisation Non Gouvernemental (ONG) ou une Institution sans but lucratif (*)", selection=[('1', 'Oui'), ('2', 'Non')])
+    utilisation_logiciel_metier = fields.Selection(string=" C21: Utilisez-vous des logiciels métiers au sein de votre entreprise/établissement ?", selection=[('1', 'Oui'), ('2', 'Non')])
 
 
 

@@ -38,7 +38,7 @@ class Users(models.Model):
     localite_id = fields.Many2one('innoving.localite', string="Localite")
     zonerecensement_id = fields.Many2one('innoving.zone.recensement', string="Zone recensement")
     quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
-    ilot_ids = fields.Many2many('innoving.ilot', 'user_id', 'ilot_id', string="Ilots")
+    ilot_ids = fields.Many2many('innoving.ilot','innoving_user_ilot_rel', 'user_id', 'ilot_id', string="Ilots")
     type_users = fields.Selection(string="Type utilisateur", selection=[
         ('Manager', 'Manager'),
         ('Superviseur', 'Superviseur'),

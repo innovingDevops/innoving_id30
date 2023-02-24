@@ -83,5 +83,8 @@
 					<menuitem action="action_view_id30_type_activite_tree" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
 						id="menu_id30_type_activite_tree_list" name="Types d'activité" parent="menu_innoving_config_activite_economique" sequence="2035" />
 
+				<menuitem action="action_view_id30_contrainte_activite_tree" groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager"
+						id="menu_id30_contrainte_activite_tree_list" name="Contraintes activictes" parent="menu_innoving_config_activite_economique" sequence="2045" />
+
 	</data>
 </odoo>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data noupdate="1">
+		<record id="data_innoving_contrainte_activite1"
+			model="innoving.contrainte.activite">
+			<field name="name">a: Insuffisance de personnel qualifié</field>
+			<field name="code">A</field>
+			<field name="valeur">A</field>
+		</record>
+        <record id="data_innoving_contrainte_activite2"
+			model="innoving.contrainte.activite">
+			<field name="name">b: Coût élevé de la main d'œuvre</field>
+			<field name="code">B</field>
+			<field name="valeur">B</field>
+		</record>
+        <record id="data_innoving_contrainte_activite3"
+			model="innoving.contrainte.activite">
+			<field name="name">c: Formalités administratives contraignantes</field>
+			<field name="code">C</field>
+			<field name="valeur">C</field>
+		</record>
+        <record id="data_innoving_contrainte_activite4"
+			model="innoving.contrainte.activite">
+			<field name="name">d: Taxes et Patentes</field>
+			<field name="code">D</field>
+			<field name="valeur">D</field>
+		</record>
+        <record id="data_innoving_contrainte_activite5"
+			model="innoving.contrainte.activite">
+			<field name="name">e: Coût du transport élevé (FRET)</field>
+			<field name="code">E</field>
+			<field name="valeur">E</field>
+		</record>
+        <record id="data_innoving_contrainte_activite6"
+			model="innoving.contrainte.activite">
+			<field name="name">f: Mauvais état des infrastructures routières</field>
+			<field name="code">F</field>
+			<field name="valeur">F</field>
+		</record>
+        <record id="data_innoving_contrainte_activite7"
+			model="innoving.contrainte.activite">
+			<field name="name">g: Difficultés d'approvisionnement en matières premières et autres intrants (quantité et qualité)</field>
+			<field name="code">G</field>
+			<field name="valeur">G</field>
+		</record>
+        <record id="data_innoving_contrainte_activite8"
+			model="innoving.contrainte.activite">
+			<field name="name">h: Difficultés d'écoulement de la production/insuffisance de débouchés</field>
+			<field name="code">H</field>
+			<field name="valeur">H</field>
+		</record>
+        <record id="data_innoving_contrainte_activite9"
+			model="innoving.contrainte.activite">
+			<field name="name">i: Manque de machines et pièces de rechange</field>
+			<field name="code">I</field>
+			<field name="valeur">I</field>
+		</record>
+        <record id="data_innoving_contrainte_activite10"
+			model="innoving.contrainte.activite">
+			<field name="name">j: Manque d’expertise technique (maintenance machines)</field>
+			<field name="code">J</field>
+			<field name="valeur">J</field>
+		</record>
+        <record id="data_innoving_contrainte_activite11"
+			model="innoving.contrainte.activite">
+			<field name="name">k: Manque de local adapté/terrain</field>
+			<field name="code">K</field>
+			<field name="valeur">K</field>
+		</record>
+        <record id="data_innoving_contrainte_activite12"
+			model="innoving.contrainte.activite">
+			<field name="name">l: Accès limité aux structures d'appui aux entreprises</field>
+			<field name="code">L</field>
+			<field name="valeur">L</field>
+		</record>
+        <record id="data_innoving_contrainte_activite13"
+			model="innoving.contrainte.activite">
+			<field name="name">m: Difficultés d'accès au crédit (Banque et Microfinance)</field>
+			<field name="code">M</field>
+			<field name="valeur">M</field>
+		</record>
+        <record id="data_innoving_contrainte_activite14"
+			model="innoving.contrainte.activite">
+			<field name="name">n: Difficultés d'approvisionnement en énergie</field>
+			<field name="code">N</field>
+			<field name="valeur">N</field>
+		</record>
+        <record id="data_innoving_contrainte_activite15"
+			model="innoving.contrainte.activite">
+			<field name="name">o: Corruption (racket, pot de vins, etc.)</field>
+			<field name="code">O</field>
+			<field name="valeur">O</field>
+		</record>
+        <record id="data_innoving_contrainte_activite16"
+			model="innoving.contrainte.activite">
+			<field name="name">p: Autres à préciser</field>
+			<field name="code">P</field>
+			<field name="valeur">P</field>
+		</record>
+        <record id="data_innoving_contrainte_activite17"
+			model="innoving.contrainte.activite">
+			<field name="name">q: Aucune contrainte</field>
+			<field name="code">Q</field>
+			<field name="valeur">Q</field>
+		</record>
+	</data>
+</odoo>
