@@ -30,30 +30,38 @@ import string
 #from odoo.http import request
 
 
-class InnovingAffectation(models.Model):
-    _name = "innoving.affectation"
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = "Gestion des affectations d'ilots"
+class InnovingIlot(models.Model):
+    _name = "innoving.historique.identificateur"
+    #_inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = "Gestion des historiques des identificateurs"
     _order = "name asc"
     
     def _get_default_user_id(self):
         return self.env.uid
 
-
+   
     active = fields.Boolean(string='Actif',default=True, track_visibility="always")
-    name = fields.Char(string="Nom", track_visibility="always")
+    name = fields.Char(string="Numéro", track_visibility="always")
     code = fields.Char(string="Code", track_visibility="always")
-    date_demarrage = fields.Datetime("Date affectation",default=lambda self: fields.datetime.now(), track_visibility="always")
     user_id = fields.Many2one("res.users",string="Agent",default=_get_default_user_id, track_visibility="always")
     date_ajout = fields.Datetime("Date ajout",default=lambda self: fields.datetime.now(), track_visibility="always")
     state = fields.Selection(string="Etat", selection=[
         ('draft', 'Brouillon'),
         ('confirm', 'Confirmé'),
-        ('done', 'Terminé'),
+        ('done' , 'Terminé'),
         ('cancel', 'Annulé/Rejeté')
-        ], default='draft', track_visibility="always")
-    equipe_affected = fields.Many2one('innoving.equipe', string="Equipe")
-    membre_ids = fields.Many2many('res.users', 'innoving_users_equipe_rel', 'user_id', 'equipe_id', string="Membre de ma team")
+        ] , default='draft', track_visibility="always")
+    cluster_id = fields.Many2one('innoving.cluster', string="Cluster")
+    region_id = fields.Many2one('innoving.region', string="Région")
+    departement_id = fields.Many2one('innoving.departement', string="Département")
+    sousprefecture_id = fields.Many2one('innoving.sous.prefecture', string="Sous préfecture")
+    commune_id = fields.Many2one('innoving.commune', string="Commune")
+    localite_id = fields.Many2one('innoving.localite', string="Localite")
+    zonerecensement_id = fields.Many2one('innoving.zone.recensement', string='Zone recensement')
+    quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
+    ilot_id = fields.Many2one('innoving.ilot', string="Ilot")
+    identificateur_id = fields.Many2one("res.users", string="Identifiacteur")
+    equipe_id = fields.Many2one("innoving.equipe", string="Equipe")
 
     
     @api.multi
@@ -62,25 +70,6 @@ class InnovingAffectation(models.Model):
         
     @api.multi
     def button_confirm(self, force=False):
-
-        for identificateur in self.membre_ids:
-
-            donnee = {
-                'cluster_id':identificateur.ilot_id.cluster_id.id,
-                'region_id': identificateur.ilot_id.region_id.id,
-                'departement_id': identificateur.ilot_id.departement_id.id,
-                'sousprefecture_id': identificateur.ilot_id.sousprefecture_id.id,
-                'commune_id': identificateur.ilot_id.commune_id.id,
-                'localite_id': identificateur.ilot_id.localite_id.id,
-                'zonerecensement_id': identificateur.ilot_id.zonerecensement_id.id,
-                'quartier_id': identificateur.ilot_id.quartier_id.id,
-                'ilot_id': identificateur.ilot_id.id,
-                'identificateur_id': identificateur.id,
-                'equipe_id': self.equipe_affected.id,
-            }
-            self.env['innoving.historique.identificateur'].create(donnee)
-            donnee.pop('identificateur_id')
-            identificateur.write(donnee)
         self.write({'state': 'confirm', 'date_confirm': fields.Date.context_today(self)})
         
     @api.multi
@@ -91,8 +80,5 @@ class InnovingAffectation(models.Model):
     @api.multi
     def button_cancel(self, force=False):
         self.write({'state': 'cancel','date_cancel': fields.Date.context_today(self)})
-
-    @api.onchange('equipe_affected')
-    def _onchange_equipe_affected(self):
-        if self.equipe_affected:
-            self.name = "Repartition - %s" % self.equipe_affected.name
+        
+    

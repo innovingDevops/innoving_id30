@@ -17,3 +17,6 @@ from . import activite_secteur
 from . import district
 from . import type_activite
 from . import contrainte_activite
+from . import historique_identificateur
+
+

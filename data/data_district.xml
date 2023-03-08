@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data noupdate="0">
+		<record id="data_innoving_district_CI-AB"
+			model="innoving.district">
+			<field name="name">Abidjan</field>
+			<field name="code">CI-AB*</field>
+		</record>
+		<record id="data_innoving_district_CI-BS"
+			model="innoving.district">
+			<field name="name">Bas-Sassandra   </field>
+			<field name="code">CI-BS*</field>
+		</record>
+		<record id="data_innoving_district_CI-CM"
+			model="innoving.district">
+			<field name="name">Comoé </field>
+			<field name="code">CI-CM*</field>
+		</record>
+		<record id="data_innoving_district_CI-DN"
+			model="innoving.district">
+			<field name="name">Denguélé</field>
+			<field name="code">CI-DN*</field>
+		</record>
+		<record id="data_innoving_district_CI-GD"
+			model="innoving.district">
+			<field name="name">Gôh-Djiboua</field>
+			<field name="code">CI-GD*</field>
+		</record>
+		<record id="data_innoving_district_CI-LC"
+			model="innoving.district">
+			<field name="name">Lacs   </field>
+			<field name="code">CI-LC*</field>
+		</record>
+		<record id="data_innoving_district_CI-LG"
+			model="innoving.district">
+			<field name="name">Lagunes </field>
+			<field name="code">CI-LG*</field>
+		</record>
+		<record id="data_innoving_district_CI-MG"
+			model="innoving.district">
+			<field name="name">Montagnes</field>
+			<field name="code">CI-MG*</field>
+		</record>
+		<record id="data_innoving_district_CI-SM"
+			model="innoving.district">
+			<field name="name">Sassandra-Marahoué</field>
+			<field name="code">CI-SM*</field>
+		</record>
+		<record id="data_innoving_district_CI-SV"
+			model="innoving.district">
+			<field name="name">Savanes</field>
+			<field name="code">CI-SV*</field>
+		</record>
+		<record id="data_innoving_district_CI-VB"
+			model="innoving.district">
+			<field name="name">Vallée du Bandama </field>
+			<field name="code">CI-VB*</field>
+		</record>
+		<record id="data_innoving_district_CI-WR"
+			model="innoving.district">
+			<field name="name">Woroba   </field>
+			<field name="code">CI-WR*</field>
+		</record>
+		<record id="data_innoving_district_CI-YM"
+			model="innoving.district">
+			<field name="name">Yamoussoukro</field>
+			<field name="code">CI-YM*</field>
+		</record>
+		<record id="data_innoving_district_CI-ZZ"
+			model="innoving.district">
+			<field name="name">Zanzan</field>
+			<field name="code">CI-ZZ*</field>
+		</record>
+	</data>
+</odoo>

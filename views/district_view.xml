@@ -57,9 +57,10 @@
 
 				</sheet>
    
-				<div class="oe_chatter"> <field name="message_follower_ids" widget="mail_followers" 
-					/> <field name="activity_ids" widget="mail_activity" /> <field name="message_ids" 
-					widget="mail_thread" /> </div>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers"/>
+					<field name="activity_ids" widget="mail_activity" />
+					<field name="message_ids" widget="mail_thread" /> </div>
 			</form>
 		</field>
 	</record>
@@ -79,6 +80,7 @@
 		<field name="model">innoving.district</field>
 		<field name="arch" type="xml">
 			<tree string="Les districts" toolbar="1">
+				<field name="code"/>
 				<field name="name"/>
 				<field name="user_id"/>
 				<field name="date_ajout"/>

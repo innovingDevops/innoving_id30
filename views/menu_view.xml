@@ -51,23 +51,27 @@
 					<menuitem action="action_view_innoving_localite_tree" name="Localité" id="menu_innoving_localite_menu" sequence="2025" parent="menu_innoving_config_generale"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
-					<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="2030" parent="menu_innoving_config_generale"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-
-					<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="2035" parent="menu_innoving_config_generale"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-
-					<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="2040" parent="menu_innoving_config_generale"
-							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
-
-				<menuitem name="Affectations" id="menu_innoving_config_affectation" sequence="202" parent="menu_innoving_config"
+					<menuitem name="Affectations" id="menu_innoving_config_affectation" sequence="202" parent="menu_innoving_config"
 					  		groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_superviseur"/>
 
-					<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Affectation Chefs Equipes" id="menu_innoving_affectation_identificateur" sequence="2021" parent="menu_innoving_config_affectation"
+					<menuitem action="action_view_innoving_equipe_identificateur_tree" name="Affectation Identificateur" id="menu_innoving_affectation_identificateur" sequence="2021" parent="menu_innoving_config_affectation"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur" />
 
-					<menuitem action="action_view_innoving_affectation_tree" name="Affectation Identificateurs" id="menu_innoving_affectation" sequence="2022" parent="menu_innoving_config_affectation"
+					<menuitem action="action_view_innoving_affectation_tree" name="Repartition d'ilots" id="menu_innoving_affectation" sequence="2022" parent="menu_innoving_config_affectation"
 							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_chef_equipe" />
+
+
+		<menuitem name="Import découpage" id="menu_innoving_import" sequence="40" parent="innoving_id30.menu_innoving_id30_root"
+					  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager,innoving_id30.group_innoving_id30_chef_equipe,innoving_id30.group_innoving_id30_superviseur"/>
+
+					<menuitem action="action_view_innoving_zone_recensement_tree" name="Zone recensement" id="menu_innoving_zone_recensement_menu" sequence="4010" parent="menu_innoving_import"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+
+					<menuitem action="action_view_innoving_quartier_tree" name="Quartier" id="menu_innoving_quartier_menu" sequence="4020" parent="menu_innoving_import"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
+
+					<menuitem action="action_view_innoving_ilot_tree" name="Ilot" id="menu_innoving_ilot_menu" sequence="4030" parent="menu_innoving_import"
+							  groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_id30_manager" />
 
 
 

@@ -32,13 +32,37 @@
 							   attrs="{'invisible' : [('type_users', 'in' ,['Manager','Superviseur'])]}"  readonly="1" />
 						<field name="quartier_id"  string="Quartier" options="{'no_create': True, 'no_open': True}"   domain="[('zonerecensement_id','=',zonerecensement_id)]"
 							   attrs="{'invisible' : [('type_users', 'in' ,['Manager','Superviseur','Chef Equipe'])]}"  readonly="1" />
-						<field name="ilot_ids" widget="many2many_tags"  string="Ilots" options="{'no_create': True, 'no_open': True}"   domain="[('quartier_id','=',quartier_id)]"
+						<field name="ilot_id"   string="Ilots Actuel" options="{'no_create': True, 'no_open': True}"   domain="[('quartier_id','=',quartier_id)]"
 							   attrs="{'invisible' : [('type_users', 'in' ,['Manager','Superviseur','Chef Equipe'])]}"  readonly="1" />
 						<!-- FIN DES CHAMPS CACHER POUR UN SUPERVISEUR -->
 						<field name="equipe_id"  string="Equipe" attrs="{'invisible' : [('type_users', 'in' ,['Manager','Superviseur','Chef Equipe'])]}"  readonly="1" />
 				</group>
 				</group>
 
+
+				<xpath expr="//notebook/page" position="after">
+					<page string="Historique des identifications">
+						<group string="Historique des opérations de l'identificateur"></group>
+                    	<field name="historique_ids" >
+                        <tree create="false" >
+                            <field name="cluster_id"/>
+                            <field name="region_id"/>
+                            <field name="departement_id" string="Dep"/>
+                            <field name="sousprefecture_id" string="S-Prefecture"/>
+                            <field name="commune_id"/>
+                            <field name="localite_id"/>
+                            <field name="zonerecensement_id" string="ZR"/>
+                            <field name="quartier_id"/>
+                            <field name="ilot_id"/>
+                            <field name="equipe_id"/>
+                            <field name="date_ajout" string="Date"/>
+                        </tree>
+                    </field>
+					</page>
+					<page string="Role utilisateur">
+
+					</page>
+                </xpath>
 			</field>
 		</record>
 	</data>

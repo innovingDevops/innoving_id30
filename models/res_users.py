@@ -39,6 +39,8 @@ class Users(models.Model):
     zonerecensement_id = fields.Many2one('innoving.zone.recensement', string="Zone recensement")
     quartier_id = fields.Many2one('innoving.quartier', string="Quartier")
     ilot_ids = fields.Many2many('innoving.ilot','innoving_user_ilot_rel', 'user_id', 'ilot_id', string="Ilots")
+    ilot_id = fields.Many2one('innoving.ilot', string="ilot")
+
     type_users = fields.Selection(string="Type utilisateur", selection=[
         ('Manager', 'Manager'),
         ('Superviseur', 'Superviseur'),
@@ -56,10 +58,8 @@ class Users(models.Model):
     ], default='Libre', track_visibility="always")
     superviseur_id = fields.Many2one('res.users', string="Superviseur")
     manager_id = fields.Many2one('res.users', string="Manager")
-    district = fields.Selection(string="District", selection=[
-        ('Abidjan', 'Abidjan'),
-        ('Yamoussoukro', 'Yamoussoukro')
-    ], track_visibility="always")
+    district = fields.Many2one('innoving.district', string="District")
+    historique_ids = fields.One2many('innoving.historique.identificateur', 'identificateur_id', 'Historique')
 
     @api.onchange('type_users')
     def change_type_utilisateur(self):

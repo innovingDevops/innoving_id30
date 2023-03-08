@@ -8,7 +8,7 @@
 			<form string="Affectation">
 				<header>
 					<button name="button_confirm" string="Valider"
-						type="object" class="oe_highlight" states="draft"
+						type="object" class="oe_highlight" states="draft,confirm,valid"
 						groups="innoving_id30.group_innoving_id30_supermanager,innoving_id30.group_innoving_manager,innoving_id30.group_innoving_manager,innoving_id30.group_innoving_id30_superviseur,innoving_id30.group_innoving_id30_chef_equipe"
 						confirm='Etes vous sûr de vouloir valider cette affectation ?' />
 						
@@ -47,15 +47,15 @@
 								<field  name="telephone" readonly="1"  />
 								<field  name="type_users" readonly="1"  />
 								<field  name="quartier_id"  editable="bottom" options="{'no_create': True, 'no_open': True}"  />
-								<field  name="ilot_ids"  widget="many2many_tags"  domain="[('quartier_id','=',quartier_id)]" editable="bottom" options="{'no_create': True, 'no_open': True}"/>
+								<field  name="ilot_id"  domain="[('quartier_id','=',quartier_id)]" editable="bottom" options="{'no_create': True, 'no_open': True}"/>
 							</tree>
 						</field>
 					</group>
 
 				</sheet>
    
-				<div class="oe_chatter"> <field name="message_follower_ids" widget="mail_followers" 
-					/> <field name="activity_ids" widget="mail_activity" /> <field name="message_ids" 
+				<div class="oe_chatter"> <field name="message_follower_ids" widget="mail_followers"
+					/> <field name="activity_ids" widget="mail_activity" /> <field name="message_ids"
 					widget="mail_thread" /> </div>
 			</form>
 		</field>

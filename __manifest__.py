@@ -22,6 +22,7 @@ You could use this simplified accounting in case you work with an (external) acc
         'security/ir.model.access.csv',
         #'data/data_sequence.xml',
         'data/data_type_contrainte.xml',
+        'data/data_district.xml',
         'views/cluster_view.xml',
         'views/commune_view.xml',
         'views/departement_view.xml',
@@ -48,6 +49,9 @@ You could use this simplified accounting in case you work with an (external) acc
     ],
     'qweb': [
     ],
+    'routes': {
+        '/my_api/hello': 'innoving_id30.my_api',
+    },
     'installable': True,
     'application': True,
     'auto_install': False,
